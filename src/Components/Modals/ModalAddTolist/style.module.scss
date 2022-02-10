@@ -1,16 +1,60 @@
 .ModalAddToList{
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     background-color: var(--colorBody);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 0 100vmax #0003;
+    box-shadow: 0 0 10px 0 #fff, 0 0 0 100vmax #000a;
     z-index: var(--zModal);
     font-size: 24px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    &Wrapper{
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    &CloseBtn{
+        background-color: var(--colorBody);
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(50%, -50%);
+        $res: 40px;
+        font-size: 32px;
+        color: var(--colorText);
+        width: $res;
+        height: $res;
+        border-radius: 50%;
+        border: 3px solid var(--colorText);
+        transition-duration: var(--defaultTransitionTime);
+        
+        &:hover{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translate(50%, -50%) rotate(180deg) scale(1.25);
+            color: var(--colorBright);
+            border-color: var(--colorBright);
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

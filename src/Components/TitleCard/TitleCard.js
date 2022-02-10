@@ -34,11 +34,12 @@ function TitleType({title}){
     )
 }
 
-function AddToListPortal({title, showPortal, onClick}){
+function AddToListPortal({title}){
+    const [showPortal, setShowPortal] = React.useState(false)
     return (
         <>
             <button className = {`${style.TitleCardExtra} ${style.TitleCardAddToList}`}
-            onClick = {onClick}
+            onClick = {()=>{setShowPortal(true)}}
             >
                 <span className={style.TitleCardExtraLeft}>
                     Добавить в список
@@ -48,15 +49,18 @@ function AddToListPortal({title, showPortal, onClick}){
                 </div>
             </button>
             
-            {showPortal && <ModalAddToList title={title}/>}
+            {showPortal && 
+            <ModalAddToList
+            title={title}
+            onClose = {()=>{setShowPortal(false)}}
+            />
+            }
         </>
     )
 }
 
 export default function TitleCard({title}){
     const [hovered, setHovered] = React.useState(true)
-    const [addToListPortal, setAddToListPortal] = React.useState(false)
-    const [showPortal, setShowPortal] = React.useState(false)
     
     function cropTitle(){
         if(title.title.length > 28){
@@ -83,9 +87,7 @@ export default function TitleCard({title}){
             />
             
             <AddToListPortal
-            showPortal = {showPortal}
             title={title}
-            onClick = {()=>{setShowPortal(true)}}
             />
             
             <TitleYear title={title}/>
