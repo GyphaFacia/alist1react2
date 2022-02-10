@@ -5,9 +5,13 @@ import * as search from '../../Redux/searchReducer'
 import {BsSearch} from 'react-icons/bs'
 
 export default function Search(props){
-    const [searchInputValue, setSearchInputValue] = React.useState('')
     const dispatch = useDispatch()
-    // useSelector
+    const { searchInputValue } = useSelector(store => store.search)
+    
+    function setSearchInputValue(val){
+        dispatch(search.setSearchInputValue(val))
+    }
+    
     React.useEffect(()=>{
         // dispatch(search.fetchSearchPage('цельно'))
     }, [])
@@ -25,6 +29,7 @@ export default function Search(props){
     function searchTitle(){
         console.log(`Search for ${searchInputValue}`);
         setSearchInputValue('')
+        dispatch(search.fetchSearchPage(searchInputValue))
     }
     
     return (

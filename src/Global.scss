@@ -20,6 +20,11 @@
         -2px -2px 5px 0 var(--shadowColorB)
     ;
     
+    --makeThumbInset: 
+        -5px -5px 10px 0 var(--shadowColorA), 
+        5px 5px 10px 0 var(--shadowColorB)
+    ;
+    
     --makeInset: 
         -2px -2px 5px 0 var(--shadowColorA),
         2px 2px 5px 0 var(--shadowColorB)

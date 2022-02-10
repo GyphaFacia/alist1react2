@@ -1,0 +1,76 @@
+.TitleCard{
+    $cardColorA: #fff1;
+    $cardColorB: #0000;
+    $cardColorInset: #fff2;
+    
+    width: 340px;
+    height: 50vh;
+    background-color: #fff1;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    
+    background: radial-gradient(circle at center bottom, $cardColorA, $cardColorB);
+    box-shadow: 0 0 20px 0 var(--shadowColorPanel), 0 0 10px 0 $cardColorInset inset;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    
+    &, & *{
+        transition-duration: var(--defaultTransitionTime);
+    }
+    cursor: pointer;
+    
+    &Thumb{
+        width: 320px;
+        height: 450px;
+        border-radius: 10px;
+    }
+    
+    &Title{
+        text-align: center;
+        font-weight: 600;
+    }
+    
+    &Extra{
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    &:hover{
+        & .TitleCardThumb{
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 50%;
+            
+            box-shadow: var(--makeThumbInset);
+            margin-bottom: 10px;
+        }
+        
+        & .TitleCardExtra{
+            width: 75%;
+            height: auto;
+        }
+        
+        & * {
+            margin: 10px 0;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
