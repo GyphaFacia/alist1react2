@@ -5,6 +5,8 @@ export const darkTheme = {
     colorText: '#ccc',
     colorTextPlus: '#eee',
     colorBright: '#fa5',
+    
+    colorStars: '#fa0',
 
     shadowColorPanel: '#0005',
     shadowColorA: '#000a',

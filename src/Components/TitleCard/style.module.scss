@@ -45,6 +45,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        display: none;
     }
     
     &:hover{
@@ -60,6 +61,7 @@
         & .TitleCardExtra{
             width: 66%;
             height: auto;
+            display: flex;
         }
         
         & * {
@@ -68,7 +70,24 @@
     }
 }
 
-
+.Rate{
+    $StarRes: 35px;
+    width: 100%;
+    min-height: $StarRes;
+    
+    & > *{
+        color: var(--colorText);
+        pointer-events: none;
+        width: 100%;
+        height: $StarRes;
+    }
+    
+    &:hover{
+        & > *{
+            color: var(--colorStars);
+        }
+    }
+}
 
 
 
