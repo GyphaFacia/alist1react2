@@ -60,9 +60,17 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    transition-duration: var(--defaultTransitionTime);
+    
+    &:hover{
+        background-color: #8882;
+    }
     
     &Name{
-        
+        font-size: 24px;
+        font-weight: 600;
     }
     
     &Checkbox{
@@ -76,6 +84,7 @@
         align-items: center;
         color: var(--colorText);
         border: 3px solid var(--colorText);
+        transition-duration: var(--defaultTransitionTime);
         
         &:hover{
             color: var(--colorTextPlus);
@@ -88,7 +97,31 @@
     }
 }
 
+.NewList{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 
+    & input{
+        color: var(--colorText);
+        padding: 10px;
+        border: 3px solid var(--colorText);
+        width: 100%;
+        transition-duration: var(--defaultTransitionTime);
+        border-radius: 10px;
+        font-size: 20px;
+        &:hover{
+            color: var(--colorTextPlus);
+            border-color: var(--colorTextPlus);
+        }
+        &:focus{
+            color: var(--colorBright);
+            border-color: var(--colorBright);
+        }
+    }
+}
 
 
 

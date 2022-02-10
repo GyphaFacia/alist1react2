@@ -5,8 +5,26 @@ import ReactDom from 'react-dom'
 import * as listsReducer from '../../../Redux/listsReducer'
 import {BsCheckLg} from 'react-icons/bs'
 
-function newListField(lists){
+function NewList({title}){
+    const [newListInput, setNewListInput] = React.useState('')
     
+    return (
+        <div
+        className = {style.NewList}
+        >
+            Новый список:
+            <input
+            type="text"
+            value = {newListInput}
+            onChange = {(e)=>{setNewListInput(e.target.value)}}
+            placeholder = "Введите название списка"
+            />
+            <List
+            title = {title}
+            listname = {newListInput}
+            />
+        </div>
+    )
 }
 
 function List({listname, title}){
@@ -37,6 +55,7 @@ function List({listname, title}){
     }
     
     function handleCheckBoxClick(){
+        if(!listname){return false}
         if(titleInList()){
             
         }
@@ -96,6 +115,9 @@ export default function ModalAddToList({title, onClose}){
                         key = {i}
                         />
                     )}
+                    <NewList
+                    title={title}
+                    />
                 </section>
                 
             </div>
