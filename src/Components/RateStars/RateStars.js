@@ -13,7 +13,7 @@ export default function RateStars(props){
     
     React.useEffect(()=>{
         setStarsRatio(getRateFromStore()/10)
-    }, [rates])
+    }, [rates, props])
     
     function getClassName(){
         const classList = []
