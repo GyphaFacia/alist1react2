@@ -4,7 +4,7 @@
     $cardColorInset: #fff2;
     
     width: 340px;
-    height: 50vh;
+    height: 575px;
     background-color: #fff1;
     overflow: hidden;
     margin: 10px;
@@ -17,7 +17,7 @@
     box-shadow: 0 0 20px 0 var(--shadowColorPanel), 0 0 10px 0 $cardColorInset inset;
     
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     
@@ -41,7 +41,6 @@
     &Extra{
         width: 0;
         height: 0;
-        overflow: hidden;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -59,7 +58,7 @@
         }
         
         & .TitleCardExtra{
-            width: 66%;
+            width: 90%;
             height: auto;
             display: flex;
         }
@@ -70,24 +69,7 @@
     }
 }
 
-.Rate{
-    $StarRes: 35px;
-    width: 100%;
-    min-height: $StarRes;
-    
-    & > *{
-        color: var(--colorText);
-        pointer-events: none;
-        width: 100%;
-        height: $StarRes;
-    }
-    
-    &:hover{
-        & > *{
-            color: var(--colorStars);
-        }
-    }
-}
+
 
 
 

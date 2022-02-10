@@ -1,0 +1,36 @@
+.RateStars{
+    $StarRes: 35px;
+    width: 100%;
+    min-height: $StarRes;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    
+    &Wrapper{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    &Digit{
+        font-size: 16px;
+        pointer-events: none;
+        position: absolute;
+        right: -10px;
+    }
+    
+    & > *{
+        color: var(--colorText);
+        pointer-events: none;
+        width: 100%;
+        height: $StarRes;
+    }
+    
+    &:hover{
+        & > *{
+            color: var(--colorStars);
+        }
+    }
+}

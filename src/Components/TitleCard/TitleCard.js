@@ -2,57 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 //import * as reducer from '../Redux/SomeReducer'
-import {BsStar, BsStarHalf, BsStarFill} from 'react-icons/bs'
-
-function Rate(props){
-    const [starsRatio, setStarsRatio] = React.useState(0.5)
-    
-    function getClassName(){
-        const classList = []
-        if(props.className){
-            classList.push(props.className)
-        }
-        classList.push(style.Rate)
-        return classList.join(' ')
-    }
-    
-    function handleMouseMove(e){
-        const {left, width} = e.target.getBoundingClientRect()
-        const {clientX} = e
-        const ratio = (clientX - left) / width
-        setStarsRatio(ratio)
-    }
-    
-    function ratioToStars(ratio){
-        ratio += 1/20
-        const stars = []
-        
-        const fullStars = parseInt(ratio*5)
-        let halfStars = (ratio*5 - parseInt(ratio*5))%1
-        halfStars = halfStars >= 0.5 ? 1 : 0
-        halfStars = fullStars >= 5 ? 0 : halfStars
-        const emptyStars = 5 - fullStars - halfStars
-        
-        // console.log(ratio, fullStars, halfStars, emptyStars);
-        
-        for(let i = 0; i < fullStars; i++){stars.push(BsStarFill)}
-        for(let i = 0; i < halfStars; i++){stars.push(BsStarHalf)}
-        for(let i = 0; i < emptyStars; i++){stars.push(BsStar)}
-        return stars
-    }
-    
-    return (
-        <section
-        className = {getClassName()}
-        onMouseMove = {handleMouseMove}
-        >
-            {ratioToStars(starsRatio).map(
-                (Star, i) => 
-                <Star key = {i}/>
-            )}
-        </section>
-    )
-}
+import RateStars from '../RateStars/RateStars'
 
 export default function TitleCard({title}){
     const [hovered, setHovered] = React.useState(true)
@@ -81,7 +31,7 @@ export default function TitleCard({title}){
                 {cropTitle()}
             </div>
             
-            <Rate
+            <RateStars
             className = {style.TitleCardExtra}
             titleLink = {title.url}
             />
@@ -90,14 +40,14 @@ export default function TitleCard({title}){
             className = {style.TitleCardExtra}
             >
                 <span>Год:</span>
-                <span>{title.year}</span>
+                <div>{title.year}</div>
             </div>
             
             <div
             className = {style.TitleCardExtra}
             >
                 <span>Тип:</span>
-                <span>{title.type}</span>
+                <div>{title.type}</div>
             </div>
         </div>
     )

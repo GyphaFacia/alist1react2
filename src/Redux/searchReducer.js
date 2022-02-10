@@ -8,11 +8,11 @@ const defaultState = {
     searchItems: searchRequestTestData.message,
     currentItem: itemRequestTestData.message,
     searchInputValue: '',
+    searchIsLoading: true,
 }
 
 // /api/alist/search << search
 // /api/alist/item << link
-
 const API = 'https://frozen-ocean-51941.herokuapp.com/api'
 
 export const fetchSearchPage = (searchReq) => async (dispatch) =>{

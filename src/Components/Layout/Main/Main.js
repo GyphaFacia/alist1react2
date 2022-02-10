@@ -3,14 +3,14 @@ import React from 'react'
 import style from './style.module.scss'
 //import * as reducer from '../Redux/SomeReducer'
 import TitlesGrid from '../../TitlesGrid/TitlesGrid'
+import * as rates from '../../../Redux/ratesReducer'
 
 export default function Main(props){
-    const blank = new Array(100).fill(0)
+    const dispatch = useDispatch()
     
-    // useDispatch
-    // useSelector
-    // useState
-    // useEffect
+    React.useEffect(()=>{
+        dispatch(rates.fetchRates())
+    }, [])
     
     return (
         <main
