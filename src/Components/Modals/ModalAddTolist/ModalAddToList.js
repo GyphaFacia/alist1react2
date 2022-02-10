@@ -86,7 +86,11 @@ export default function ModalAddToList({title, onClose}){
     const { lists } = useSelector(store => store.lists)
     
     const getListNames = (lists)=>{
-        return lists.map(list => list.list)
+        return lists.filter(
+            list => list.content && list.content.length
+        ).map(
+            list => list.list
+        )
     }
     
     return ReactDom.createPortal((
