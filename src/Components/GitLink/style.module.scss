@@ -1,0 +1,11 @@
+.GitLink{
+    font-size: 24px;
+    cursor: pointer;
+    transition-duration: var(--defaultTransitionTime);
+    color: var(--colorTextPlus);
+    
+    &:hover{
+        color: var(--colorBright);
+        transform: scale(1.25);    
+    }
+}

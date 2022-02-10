@@ -3,5 +3,8 @@
     height: var(--footerHeight);
     box-shadow: var(--panelShadow);
     z-index: var(--zFooter);
-    padding: 10px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

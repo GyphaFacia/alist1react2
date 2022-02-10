@@ -2,6 +2,8 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 //import * as reducer from '../Redux/SomeReducer'
 import style from './style.module.scss'
+import Copyright from '../../Copyright/Copyright'
+import GitLink from '../../GitLink/GitLink'
 
 export default function Footer(props){
     // useDispatch
@@ -13,7 +15,8 @@ export default function Footer(props){
         <footer
         className={style.footer}
         >
-            Footer
+            <Copyright/>
+            <GitLink/>
         </footer>
     )
 }

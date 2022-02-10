@@ -4,4 +4,7 @@
     box-shadow: var(--panelShadow);
     z-index: var(--zHeader);
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

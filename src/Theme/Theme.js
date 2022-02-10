@@ -1,6 +1,7 @@
 export const darkTheme = {
     themeName: 'Dark theme',
     colorBody: '#333',
+    colorMain: '#444',
     colorText: '#aaa',
     colorTextPlus: '#eee',
     colorBright: '#fa5',

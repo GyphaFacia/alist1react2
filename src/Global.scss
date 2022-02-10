@@ -9,10 +9,22 @@
     --zFooter: 1000;
     --zModal: 2000;
     
+    --defaultTransitionTime: 255ms;
+    
     --headerHeight: 75px;
-    --footerHeight: 50px;
+    --footerHeight: 45px;
     
     --panelShadow: 0 0 50px 0 var(--shadowColorPanel);    
+}
+
+button, a{
+    cursor: pointer;
+}
+
+button, input, textarea{
+    background: none;
+    outline: none;
+    border: none;
 }
 
 body{
