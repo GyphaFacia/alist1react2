@@ -56,11 +56,11 @@
         font-size: 20px;
         color: var(--colorTextPlus);
         
-        &, & div{
+        &, & .TitleCardExtraRight{
             border: 3px solid var(--colorText);
         }
         
-        & div{
+        & .TitleCardExtraRight{
             transition-duration: var(--defaultTransitionTime);
             display: flex;
             justify-content: center;
@@ -73,12 +73,12 @@
         }
         
         &:hover{
-            &, & div{
+            &, & .TitleCardExtraRight{
                 color: var(--colorBright);
                 border-color: var(--colorBright);
             }
-            & div{
-                transform: rotate(180deg);
+            & .TitleCardExtraRight{
+                transform: rotate(180deg) scale(1.25);
             }
         }
     }
@@ -97,10 +97,6 @@
             width: 90%;
             height: auto;
             display: flex;
-        }
-        
-        & * {
-            // margin: 5px 0;
         }
     }
 }

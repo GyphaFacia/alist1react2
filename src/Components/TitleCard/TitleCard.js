@@ -26,9 +26,7 @@ export default function TitleCard({title}){
             alt={`Image for ${title.title}`}
             />
             
-            <div
-            className = {style.TitleCardTitle}
-            >
+            <div className={style.TitleCardTitle}>
                 {cropTitle()}
             </div>
             
@@ -37,25 +35,19 @@ export default function TitleCard({title}){
             titleLink = {title.url}
             />
             
-            <button
-            className = {`${style.TitleCardExtra} ${style.TitleCardAddToList}`}
-            >
-                <span>Добавить в список</span>
-                <div><BsFillPlusCircleFill/></div>
+            <button className = {`${style.TitleCardExtra} ${style.TitleCardAddToList}`}>
+                <span className={style.TitleCardExtraLeft}>Добавить в список</span>
+                <div className={style.TitleCardExtraRight}><BsFillPlusCircleFill/></div>
             </button>
             
-            <div
-            className = {style.TitleCardExtra}
-            >
-                <span>Год:</span>
-                <div>{title.year}</div>
+            <div className = {style.TitleCardExtra}>
+                <span className={style.TitleCardExtraLeft}>Год:</span>
+                <div className={style.TitleCardExtraRight}>{title.year}</div>
             </div>
             
-            <div
-            className = {style.TitleCardExtra}
-            >
-                <span>Тип:</span>
-                <div>{title.type}</div>
+            <div className = {style.TitleCardExtra}>
+                <span className={style.TitleCardExtraLeft}>Тип:</span>
+                <div className={style.TitleCardExtraRight}>{title.type}</div>
             </div>
         </div>
     )
