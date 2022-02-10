@@ -21,7 +21,21 @@ export default function App() {
     )
 }
 
+// /api/rates/getrates << token
+// /api/rates/setrate << token, title, rate
 
+// /api/quote/getquote << none
+
+// /api/rates/addtolist << token, list, title
+// /api/rates/getlistnames << token
+// /api/rates/getlist << token, list
+// /api/rates/getalllists << token
+
+// /api/auth/register << login, password
+// /api/auth/login << login, password
+
+// /api/alist/search << search
+// /api/alist/item << link
 
 
 

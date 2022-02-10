@@ -1,14 +1,16 @@
 import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
-//import * as reducer from '../Redux/SomeReducer'
+import * as search from '../../Redux/searchReducer'
 import {BsSearch} from 'react-icons/bs'
 
 export default function Search(props){
     const [searchInputValue, setSearchInputValue] = React.useState('')
-    // useDispatch
+    const dispatch = useDispatch()
     // useSelector
-    // useEffect
+    React.useEffect(()=>{
+        // dispatch(search.fetchSearchPage('цельно'))
+    }, [])
     
     function handleSearchInput(e){
         setSearchInputValue(e.target.value)
