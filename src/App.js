@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import './Global.scss';
+import React from 'react'
+import {useDispatch, useSelector, Provider} from 'react-redux'
+import store from './Redux/Store'
+// import * as theme from './Theme/Theme'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    // useDispatch
+    // useSelector
+    // useState
+    // useEffect
+    
+    return (
+      <Provider store = {store}>
+          <div className="App"
+          >
+          </div>
+      </Provider>
+    )
 }
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+

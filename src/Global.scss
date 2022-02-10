@@ -1,0 +1,27 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+:root {
+    --themeName: none;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--colorBody);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
