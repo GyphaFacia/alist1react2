@@ -30,6 +30,7 @@ export default function App() {
 // /api/rates/getlistnames << token
 // /api/rates/getlist << token, list
 // /api/rates/getalllists << token
+// /api/rates/removefromlist << token, list, title
 
 // /api/auth/register << login, password
 // /api/auth/login << login, password

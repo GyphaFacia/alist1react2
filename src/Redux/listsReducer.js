@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmVmNTNhOTkyMWU1ZDgyZTA0NDVmMCIsImxvZ2luIjoiR3lwaGFjaWEiLCJpYXQiOjE2NDQ1MTQxNzIsImV4cCI6MTY0NDU0Mjk3Mn0.bekxOn21vQeh0ZXRlKAxiz90z3tO0r704FGlIX_ZtX0"
+const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmVmNTNhOTkyMWU1ZDgyZTA0NDVmMCIsImxvZ2luIjoiR3lwaGFjaWEiLCJpYXQiOjE2NDQ1MTc3MDAsImV4cCI6MTY0NDU0NjUwMH0.mZRdVtxW_lQrbrkg0mB4_dHhYENMVP_udKNdbkI0-EU"
 
 const defaultState = {
     lists: [],
@@ -26,6 +26,16 @@ export const fetchAddToList = (list, title, token = testToken) => async (dispatc
     const link = `${API}/rates/addtolist`
     const headers = {'Content-Type': 'application/json'}
     const body = {token, list, title}
+    const {data} = await axios.post(link, body, {headers})
+    dispatch({type: 'setLists', payload: data.message})
+}
+
+// /api/rates/removefromlist << token, list, title
+export const fetchRemoveFromList = (list, title, token = testToken) => async (dispatch) =>{
+    const link = `${API}/rates/removefromlist`
+    const headers = {'Content-Type': 'application/json'}
+    const body = {token, list, title}
+    console.log('here');
     const {data} = await axios.post(link, body, {headers})
     dispatch({type: 'setLists', payload: data.message})
 }

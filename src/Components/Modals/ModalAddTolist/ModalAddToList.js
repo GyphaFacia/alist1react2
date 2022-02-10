@@ -51,13 +51,15 @@ function List({listname, title}){
     }
     
     function removeTitleFromList(){
-        
+        const list = listname
+        const t = {url: title.url}
+        dispatch(listsReducer.fetchRemoveFromList(list, t))
     }
     
     function handleCheckBoxClick(){
         if(!listname){return false}
         if(titleInList()){
-            
+            removeTitleFromList()
         }
         else{
             addTitleToList()

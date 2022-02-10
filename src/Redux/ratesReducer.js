@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmVmNTNhOTkyMWU1ZDgyZTA0NDVmMCIsImxvZ2luIjoiR3lwaGFjaWEiLCJpYXQiOjE2NDQ1MTQxNzIsImV4cCI6MTY0NDU0Mjk3Mn0.bekxOn21vQeh0ZXRlKAxiz90z3tO0r704FGlIX_ZtX0"
+const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmVmNTNhOTkyMWU1ZDgyZTA0NDVmMCIsImxvZ2luIjoiR3lwaGFjaWEiLCJpYXQiOjE2NDQ1MTc3MDAsImV4cCI6MTY0NDU0NjUwMH0.mZRdVtxW_lQrbrkg0mB4_dHhYENMVP_udKNdbkI0-EU"
 
 const defaultState = {
     rates: [],
