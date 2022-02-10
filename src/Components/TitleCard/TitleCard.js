@@ -4,20 +4,28 @@ import style from './style.module.scss'
 //import * as reducer from '../Redux/SomeReducer'
 
 export default function TitleCard({title}){
+    const [hovered, setHovered] = React.useState(0)
     // useDispatch
     // useSelector
-    // useState
+    function cropTitle(){
+        if(title.title.length > 28){
+            return hovered ? title.title : `${title.title.slice(0, 25)}...`
+        }
+        return title.title
+    }
     
-    // title
-    // year
-    // type
-    // thumb
-    // url
-    
+    // Стальной алхимик: Священная
     return (
         <div
         className = {style.TitleCard}
+        onMouseEnter = {()=>{setHovered(true)}}
+        onMouseLeave = {()=>{setHovered(false)}}
         >   
+            <aside
+            className = {style.TitleCardRate}
+            >
+            </aside>
+        
             <img
             className = {style.TitleCardThumb}
             src={title.thumb}
@@ -27,7 +35,7 @@ export default function TitleCard({title}){
             <div
             className = {style.TitleCardTitle}
             >
-                {title.title}
+                {cropTitle()}
             </div>
             
             <div
