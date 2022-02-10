@@ -4,6 +4,10 @@ export const darkTheme = {
     colorText: '#aaa',
     colorTextPlus: '#eee',
     colorBright: '#fa5',
+
+    shadowColorPanel: '#0005',
+    shadowColorA: '#000a',
+    shadowColorB: '#fff3',
 }
 
 export function setTheme(newTheme){

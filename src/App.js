@@ -2,7 +2,8 @@ import './Global.scss';
 import React from 'react'
 import {useDispatch, useSelector, Provider} from 'react-redux'
 import store from './Redux/Store'
-// import * as theme from './Theme/Theme'
+import * as theme from './Theme/Theme'
+import Body from './Components/Layout/Body/Body'
 
 export default function App() {
     // useDispatch
@@ -14,6 +15,7 @@ export default function App() {
       <Provider store = {store}>
           <div className="App"
           >
+            <Body/>
           </div>
       </Provider>
     )

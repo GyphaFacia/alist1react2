@@ -1,0 +1,7 @@
+.footer{
+    width: 100vw;
+    height: var(--footerHeight);
+    box-shadow: var(--panelShadow);
+    z-index: var(--zFooter);
+    padding: 10px;
+}

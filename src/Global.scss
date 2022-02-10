@@ -4,15 +4,36 @@
 
 :root {
     --themeName: none;
+    
+    --zHeader: 1000;
+    --zFooter: 1000;
+    --zModal: 2000;
+    
+    --headerHeight: 75px;
+    --footerHeight: 50px;
+    
+    --panelShadow: 0 0 50px 0 var(--shadowColorPanel);    
 }
 
 body{
     margin: 0;
     padding: 0;
     background-color: var(--colorBody);
+    color: var(--colorText);
+    font-size: 16px;
 }
 
+*::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background-color: #8885;
+}
 
+*::-webkit-scrollbar-thumb {
+    background-color: #fff3;
+    border-radius: 999px;
+}
 
 
 

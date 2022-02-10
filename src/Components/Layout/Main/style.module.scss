@@ -1,0 +1,17 @@
+.main{
+    flex-grow: 1;
+    overflow: hidden;
+    
+    &Content{
+        width: 100vw;
+        background-color: #fff3;
+        max-height: calc(100vh - var(--headerHeight) - var(--footerHeight));
+        padding: 10px;
+        
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        overflow: auto;
+    }
+}
