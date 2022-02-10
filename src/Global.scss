@@ -14,7 +14,16 @@
     --headerHeight: 75px;
     --footerHeight: 45px;
     
-    --panelShadow: 0 0 50px 0 var(--shadowColorPanel);    
+    --panelShadow: 0 0 50px 0 var(--shadowColorPanel);
+    --makeOutset: 
+        2px 2px 5px 0 var(--shadowColorA),
+        -2px -2px 5px 0 var(--shadowColorB)
+    ;
+    
+    --makeInset: 
+        -2px -2px 5px 0 var(--shadowColorA),
+        2px 2px 5px 0 var(--shadowColorB)
+    ;
 }
 
 button, a{
@@ -47,8 +56,10 @@ body{
     border-radius: 999px;
 }
 
-
-
+*::selection {
+    color: var(--colorBody);
+    background: var(--colorBright);
+}
 
 
 

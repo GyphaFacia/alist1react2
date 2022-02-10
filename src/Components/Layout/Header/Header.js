@@ -2,6 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 //import * as reducer from '../Redux/SomeReducer'
+import Search from '../../Search/Search'
 
 export default function Header(props){
     // useDispatch
@@ -13,7 +14,7 @@ export default function Header(props){
         <header
         className={style.header}
         >
-            Header
+            <Search/>
         </header>
     )
 }
