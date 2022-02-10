@@ -5,10 +5,25 @@ import style from './style.module.scss'
 import {BsSearch} from 'react-icons/bs'
 
 export default function Search(props){
+    const [searchInputValue, setSearchInputValue] = React.useState('')
     // useDispatch
     // useSelector
-    // useState
     // useEffect
+    
+    function handleSearchInput(e){
+        setSearchInputValue(e.target.value)
+    }
+    
+    function handleSearchEnter(e){
+        if(e.code == 'Enter'){
+            searchTitle()
+        }
+    }
+    
+    function searchTitle(){
+        console.log(`Search for ${searchInputValue}`);
+        setSearchInputValue('')
+    }
     
     return (
         <div
@@ -17,12 +32,16 @@ export default function Search(props){
             <input
             type="text"
             className = {style.SearchInput}
-            spellcheck="false"
+            spellCheck = {false}
             placeholder="Search for title"
+            value = {searchInputValue}
+            onInput = {handleSearchInput}
+            onKeyUp = {handleSearchEnter}
             />
             
             <button
             className = {style.SearchGoButton}
+            onClick = {searchTitle}
             >
                 <BsSearch/>
             </button>
