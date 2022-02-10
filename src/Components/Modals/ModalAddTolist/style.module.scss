@@ -1,0 +1,16 @@
+.ModalAddToList{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--colorBody);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 0 100vmax #0003;
+    z-index: var(--zModal);
+    font-size: 24px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
