@@ -3,6 +3,7 @@ import React from 'react'
 import style from './style.module.scss'
 //import * as reducer from '../Redux/SomeReducer'
 import RateStars from '../RateStars/RateStars'
+import {BsFillPlusCircleFill} from 'react-icons/bs'
 
 export default function TitleCard({title}){
     const [hovered, setHovered] = React.useState(true)
@@ -35,6 +36,13 @@ export default function TitleCard({title}){
             className = {style.TitleCardExtra}
             titleLink = {title.url}
             />
+            
+            <button
+            className = {`${style.TitleCardExtra} ${style.TitleCardAddToList}`}
+            >
+                <span>Добавить в список</span>
+                <div><BsFillPlusCircleFill/></div>
+            </button>
             
             <div
             className = {style.TitleCardExtra}

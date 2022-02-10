@@ -21,7 +21,7 @@
     align-items: center;
     flex-direction: column;
     
-    &, & *{
+    &, & > *{
         transition-duration: var(--defaultTransitionTime);
     }
     cursor: pointer;
@@ -47,6 +47,42 @@
         display: none;
     }
     
+    &AddToList{
+        transition-duration: var(--defaultTransitionTime);
+        border: 2px solid var(--colorText);
+        border-radius: 100vw;
+        padding: 5px;
+        padding-left: 10px;
+        font-size: 20px;
+        color: var(--colorTextPlus);
+        
+        &, & div{
+            border: 3px solid var(--colorText);
+        }
+        
+        & div{
+            transition-duration: var(--defaultTransitionTime);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            $res: 30px;
+            width: $res;
+            height: $res;
+            font-size: 24px;
+            border-radius: 50%;
+        }
+        
+        &:hover{
+            &, & div{
+                color: var(--colorBright);
+                border-color: var(--colorBright);
+            }
+            & div{
+                transform: rotate(180deg);
+            }
+        }
+    }
+    
     &:hover{
         & .TitleCardThumb{
             width: 240px;
@@ -64,7 +100,7 @@
         }
         
         & * {
-            margin: 10px 0;
+            // margin: 5px 0;
         }
     }
 }
