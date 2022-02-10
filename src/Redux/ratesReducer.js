@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmVmNTNhOTkyMWU1ZDgyZTA0NDVmMCIsImxvZ2luIjoiR3lwaGFjaWEiLCJpYXQiOjE2NDQ1MTc3MDAsImV4cCI6MTY0NDU0NjUwMH0.mZRdVtxW_lQrbrkg0mB4_dHhYENMVP_udKNdbkI0-EU"
-
 const defaultState = {
     rates: [],
 }
@@ -10,7 +8,7 @@ const defaultState = {
 // /api/rates/setrate << token, title, rate
 const API = 'https://frozen-ocean-51941.herokuapp.com/api'
 
-export const fetchRates = (token = testToken) => async (dispatch) =>{
+export const fetchRates = (token) => async (dispatch) =>{
     const link = `${API}/rates/getrates`
     const headers = {'Content-Type': 'application/json'}
     const body = {token}
@@ -19,7 +17,7 @@ export const fetchRates = (token = testToken) => async (dispatch) =>{
     dispatch({type: 'setRates', payload: data.message})
 }
 
-export const fetchSetRate = (title, rate, token = testToken) => async (dispatch) =>{
+export const fetchSetRate = (title, rate, token ) => async (dispatch) =>{
     const link = `${API}/rates/setrate`
     const headers = {'Content-Type': 'application/json'}
     const body = {token, title, rate}

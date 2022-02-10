@@ -28,8 +28,8 @@ export const fetchLogin = (login, password) => async (dispatch) =>{
 }
 
 export const logOut = () => async (dispatch) =>{
-    dispatch({type: 'setToken', payload: null})
-    localStorage.setItem('token', null)
+    dispatch({type: 'setToken', payload: ''})
+    localStorage.setItem('token', '')
 }
 
 export const setToken = (payload)=>({type: 'setToken', payload})
