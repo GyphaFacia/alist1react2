@@ -13,6 +13,15 @@
     width: 100%;
     height: 100%;
     
+    &ListsSection{
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+    
     &Wrapper{
         position: fixed;
         left: 50%;
@@ -46,7 +55,38 @@
     }
 }
 
-
+.List{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+    &Name{
+        
+    }
+    
+    &Checkbox{
+        margin-left: 20px;
+        $res: 40px;
+        border-radius: 10px;
+        width: $res;
+        height: $res;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--colorText);
+        border: 3px solid var(--colorText);
+        
+        &:hover{
+            color: var(--colorTextPlus);
+            border-color: var(--colorTextPlus);
+        }
+        &:active{
+            color: var(--colorBright);
+            border-color: var(--colorBright);
+        }
+    }
+}
 
 
 
