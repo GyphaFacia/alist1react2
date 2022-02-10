@@ -9,6 +9,7 @@ const defaultState = {
 const API = 'https://frozen-ocean-51941.herokuapp.com/api'
 
 export const fetchRates = (token) => async (dispatch) =>{
+    token = token ? token : localStorage.getItem('token')
     const link = `${API}/rates/getrates`
     const headers = {'Content-Type': 'application/json'}
     const body = {token}
@@ -17,7 +18,8 @@ export const fetchRates = (token) => async (dispatch) =>{
     dispatch({type: 'setRates', payload: data.message})
 }
 
-export const fetchSetRate = (title, rate, token ) => async (dispatch) =>{
+export const fetchSetRate = (title, rate, token) => async (dispatch) =>{
+    token = token ? token : localStorage.getItem('token')
     const link = `${API}/rates/setrate`
     const headers = {'Content-Type': 'application/json'}
     const body = {token, title, rate}
