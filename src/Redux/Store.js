@@ -5,6 +5,7 @@ import {searchReducer} from './searchReducer'
 import {ratesReducer} from './ratesReducer'
 import {listsReducer} from './listsReducer'
 import {authReducer} from './authReducer'
+import {hintsReducer} from './hintsReducer'
 
 const rootReducer = combineReducers({
     modals : modalsReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     rates: ratesReducer,
     lists: listsReducer,
     auth: authReducer,
+    hints: hintsReducer,
 })
 
 const store = createStore(

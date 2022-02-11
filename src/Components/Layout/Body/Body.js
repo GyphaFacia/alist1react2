@@ -5,6 +5,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Main from '../Main/Main'
 import style from './style.module.scss'
+import Hints from '../../Hints/Hints'
 import ModalLogin from '../../Modals/ModalLogin/ModalLogin'
 
 import * as rates from '../../../Redux/ratesReducer'
@@ -32,7 +33,10 @@ export default function Body(props){
         className={style.body}
         >
             {showSignInModal &&
-            <ModalLogin onClose={()=>{dispatch(auth.setShowSignInModal(false))}}/>}
+                <ModalLogin onClose={()=>{dispatch(auth.setShowSignInModal(false))}}/>
+            }
+            <Hints/>
+            
             <Header/>
             <Main/>
             <Footer/>

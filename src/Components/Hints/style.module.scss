@@ -1,0 +1,13 @@
+.Hints{
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 50px;
+    padding-right: 0;
+    background-color: red;
+    z-index: var(--zHints);
+}
