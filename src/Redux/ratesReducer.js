@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {addHint} from './hintsReducer'
 
 const defaultState = {
     rates: [],
@@ -14,12 +15,15 @@ export const fetchRates = (token) => async (dispatch) =>{
         dispatch({type: 'setShowSignInModal', payload: true})
         return false
     }
-    const link = `${API}/rates/getrates`
-    const headers = {'Content-Type': 'application/json'}
-    const body = {token}
-    const {data} = await axios.post(link, body, {headers})
-    console.log(data);
-    dispatch({type: 'setRates', payload: data.message})
+    try {
+        const link = `${API}/rates/getrates`
+        const headers = {'Content-Type': 'application/json'}
+        const body = {token}
+        const {data} = await axios.post(link, body, {headers})
+        dispatch({type: 'setRates', payload: data.message})
+    } catch (e) {
+        console.warn(e)
+    }
 }
 
 export const fetchSetRate = (title, rate, token) => async (dispatch) =>{
@@ -28,12 +32,18 @@ export const fetchSetRate = (title, rate, token) => async (dispatch) =>{
         dispatch({type: 'setShowSignInModal', payload: true})
         return false
     }
-    const link = `${API}/rates/setrate`
-    const headers = {'Content-Type': 'application/json'}
-    const body = {token, title, rate}
-    const {data} = await axios.post(link, body, {headers})
-    console.log(data);
-    dispatch({type: 'setRates', payload: data.message})
+    try {
+        const link = `${API}/rates/setrate`
+        const headers = {'Content-Type': 'application/json'}
+        const body = {token, title, rate}
+        const {data} = await axios.post(link, body, {headers})
+        console.log(data);
+        dispatch({type: 'setRates', payload: data.message})
+        dispatch(addHint('Title rated'))
+    } catch (e) {
+        console.warn(e)
+        dispatch(addHint('Something went wrong', 0, 'error'))
+    }
 }
 
 export const setRates = (payload)=>({type: 'setRates', payload})

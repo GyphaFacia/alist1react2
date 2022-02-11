@@ -6,6 +6,8 @@ const hintDefaultType = 'default'
 const hintDefaultLife = 5000
 
 export const addHint = (msg, lifetime = hintDefaultLife, type = hintDefaultType) => async (dispatch) =>{
+    lifetime = lifetime ? lifetime : hintDefaultLife
+    type = type ? type : hintDefaultType
     const hint = {
         msg, type, lifetime,
         id: Date.now()+Math.random(),

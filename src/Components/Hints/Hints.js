@@ -7,14 +7,12 @@ function Hint({hint}){
     const dispatch = useDispatch()
     const [isFading, setIsFading] = React.useState(false)
     const [isShrinking, setIsShrinking] = React.useState(false)
+    const [isExpanding, setIsExpanding] = React.useState(false)
     
     React.useEffect(()=>{
-        setTimeout(()=>{
-            setIsFading(true)
-        }, hint.lifetime - 1000)
-        setTimeout(()=>{
-            setIsShrinking(true)
-        }, hint.lifetime - 500)
+        setTimeout(()=>{ setIsExpanding(true) }, 0)
+        setTimeout(()=>{ setIsFading(true) }, hint.lifetime - 1000)
+        setTimeout(()=>{ setIsShrinking(true) }, hint.lifetime - 500)
     }, [])
     
     function handleHintCloseBtnClick(){
@@ -24,8 +22,16 @@ function Hint({hint}){
     function getClassName(){
         const classList = []
         classList.push(style.Hint)
+        if(isExpanding){classList.push(style.HintExpanding)}
         if(isFading){classList.push(style.HintFading)}
         if(isShrinking){classList.push(style.HintShrinking)}
+        
+        switch (hint.type) {
+            case 'error':
+                classList.push(style.HintError)
+                break;
+        }
+        
         return classList.join(' ')
     }
     

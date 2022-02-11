@@ -33,10 +33,6 @@ export default function Body(props){
     return (
         <div
         className={style.body}
-        onContextMenu = {(e)=>{
-            e.preventDefault()
-            dispatch(hintsReducer.addHint(`Click ${Date.now()}`))
-        }}
         >
             {showSignInModal &&
                 <ModalLogin onClose={()=>{dispatch(auth.setShowSignInModal(false))}}/>
