@@ -10,6 +10,7 @@ const defaultState = {
     currentItem: itemRequestTestData.message,
     searchInputValue: '',
     searchIsLoading: true,
+    searchInputFocus: false,
 }
 
 // /api/alist/search << search
@@ -27,14 +28,12 @@ export const fetchSearchPage = (searchReq) => async (dispatch) =>{
         console.warn(e)
         dispatch(addHint('Error while searching', 0, 'error'))
     }
-    // do something with data
-    // dispatch({type: 'setPageData', payload: data})
-    // dispatch({type: 'setSomethingElse', payload: data.key})
 }
 
 export const setSearchItems = (payload)=>({type: 'setSearchItems', payload})
 export const setCurrentItem = (payload)=>({type: 'setCurrentItem', payload})
 export const setSearchInputValue = (payload)=>({type: 'setSearchInputValue', payload})
+export const setSearchInputFocus = (payload)=>({type: 'setSearchInputFocus', payload})
 
 export const searchReducer = (state = defaultState, action)=>{
     const {payload, type} = action
@@ -48,6 +47,7 @@ export const searchReducer = (state = defaultState, action)=>{
       case 'setSearchItems': return {...state, searchItems: payload}
       case 'setCurrentItem': return {...state, currentItem: payload}
       case 'setSearchInputValue': return {...state, searchInputValue: payload}
+      case 'setSearchInputFocus': return {...state, searchInputFocus: payload}
       default:
           return state
     }

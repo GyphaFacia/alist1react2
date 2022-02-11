@@ -11,10 +11,7 @@ export default function TitlesGrid(props){
     // useEffect
     
     function getTitles(){
-        if(props.titles){
-            return props.titles
-        }
-        return searchItems
+        return props.titles ? props.titles : searchItems
     }
     
     return (

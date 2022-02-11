@@ -61,6 +61,7 @@ function AddToListPortal({title}){
 
 export default function TitleCard({title}){
     const [hovered, setHovered] = React.useState(true)
+    const { searchInputValue, searchInputFocus } = useSelector(store => store.search)
     
     function cropTitle(){
         if(title.title.length > 28){
@@ -69,9 +70,20 @@ export default function TitleCard({title}){
         return title.title
     }
     
+    function getClassName(){
+        const classList = []
+        classList.push(style.TitleCard)
+        if(searchInputValue && searchInputFocus &&
+            title.title.toLowerCase().includes(searchInputValue.toLowerCase())
+        ){
+            classList.push(style.TitleCardMatched)
+        }
+        return classList.join(' ')
+    }
+    
     return (
         <div
-        className = {style.TitleCard}
+        className = {getClassName()}
         onMouseEnter = {()=>{setHovered(true)}}
         onMouseLeave = {()=>{setHovered(false)}}
         >        

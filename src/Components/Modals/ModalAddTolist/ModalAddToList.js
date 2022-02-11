@@ -101,7 +101,9 @@ export default function ModalAddToList({title, onClose}){
             className = {style.ModalAddToList}
             >
                 <div>Добавить аниме</div>
-                <div>«{title.title}»</div>
+                <div
+                className = {style.ModalAddToListTitleName}
+                >«{title.title}»</div>
                 <div>В список:</div>
                 
                 <button

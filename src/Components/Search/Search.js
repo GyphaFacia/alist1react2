@@ -12,16 +12,12 @@ export default function Search(props){
         dispatch(search.setSearchInputValue(val))
     }
     
-    React.useEffect(()=>{
-        // dispatch(search.fetchSearchPage('цельно'))
-    }, [])
-    
     function handleSearchInput(e){
         setSearchInputValue(e.target.value)
     }
     
     function handleSearchEnter(e){
-        if(e.code == 'Enter'){
+        if(e.code == 'Enter' && searchInputValue){
             searchTitle()
         }
     }
@@ -30,6 +26,14 @@ export default function Search(props){
         console.log(`Search for ${searchInputValue}`);
         setSearchInputValue('')
         dispatch(search.fetchSearchPage(searchInputValue))
+    }
+    
+    function handleSearchBlur(){
+        dispatch(search.setSearchInputFocus(false))
+    }
+    
+    function handleSearchFocus(){
+        dispatch(search.setSearchInputFocus(true))
     }
     
     return (
@@ -44,6 +48,8 @@ export default function Search(props){
             value = {searchInputValue}
             onInput = {handleSearchInput}
             onKeyUp = {handleSearchEnter}
+            onBlur = {handleSearchBlur}
+            onFocus = {handleSearchFocus}
             />
             
             <button

@@ -21,6 +21,12 @@
     align-items: center;
     flex-direction: column;
     
+    &Matched{
+        // filter: brightness(1.25);
+        box-shadow: 0 0 10px 0 var(--colorBright), 0 0 10px 0 $cardColorInset inset;
+        // border: 1px solid var(--colorBright);
+    }
+    
     &, & > *{
         transition-duration: var(--defaultTransitionTime);
     }
