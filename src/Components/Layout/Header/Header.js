@@ -3,6 +3,7 @@ import React from 'react'
 import style from './style.module.scss'
 //import * as reducer from '../Redux/SomeReducer'
 import Search from '../../Search/Search'
+import Auth from '../../Auth/Auth'
 
 export default function Header(props){
     // useDispatch
@@ -14,7 +15,17 @@ export default function Header(props){
         <header
         className={style.header}
         >
-            <Search/>
+            <section
+            className={`${style.headerLeft} ${style.headerSection}`}
+            >
+                <Search/>
+            </section>
+            
+            <section
+            className={`${style.headerRight} ${style.headerSection}`}
+            >
+                <Auth/>
+            </section>
         </header>
     )
 }

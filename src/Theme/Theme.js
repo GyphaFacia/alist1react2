@@ -4,7 +4,7 @@ export const darkTheme = {
     colorMain: '#444',
     colorText: '#ccc',
     colorTextPlus: '#eee',
-    colorBright: '#fa5',
+    colorBright: '#af0',
     
     colorStars: '#fa0',
 

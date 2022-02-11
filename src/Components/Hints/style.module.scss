@@ -1,4 +1,5 @@
 .Hints{
+    padding-top: var(--headerHeight);
     position: fixed;
     top: 0;
     right: 0;
@@ -12,11 +13,12 @@
 
 .Hint{
     background-color: var(--colorText);
-    margin: 10px 0;
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 33vw;
+    pointer-events: none;
     
     transition-duration: 500ms;
     opacity: 1;
@@ -45,6 +47,7 @@
     }
     
     &CloseBtn{
+        pointer-events: all;
         $res: 40px;
         width: $res;
         height: $res;

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {addHint} from './hintsReducer'
 
 const defaultState = {
     token: localStorage.getItem('token'),
@@ -10,26 +11,42 @@ const API = 'https://frozen-ocean-51941.herokuapp.com/api'
 
 // /api/auth/register << login, password
 export const fetchRegister = (login, password) => async (dispatch) =>{
-    const link = `${API}/auth/register`
-    const headers = {'Content-Type': 'application/json'}
-    const body = {login, password}
-    const {data} = await axios.post(link, body, {headers})
+    try {
+        const link = `${API}/auth/register`
+        const headers = {'Content-Type': 'application/json'}
+        const body = {login, password}
+        const {data} = await axios.post(link, body, {headers})
+        dispatch(addHint('User created'))
+    } catch (e) {
+        dispatch(addHint('Something went wrong', 0, 'error'))
+        console.warn(e)
+    }
 }
 
 // /api/auth/login << login, password
 export const fetchLogin = (login, password) => async (dispatch) =>{
-    const link = `${API}/auth/login`
-    const headers = {'Content-Type': 'application/json'}
-    const body = {login, password}
-    const {data} = await axios.post(link, body, {headers})
-    console.log(data);
-    dispatch({type: 'setToken', payload: data.token})
-    localStorage.setItem('token', data.token)
+    try {
+        const link = `${API}/auth/login`
+        const headers = {'Content-Type': 'application/json'}
+        const body = {login, password}
+        const {data} = await axios.post(link, body, {headers})
+        dispatch({type: 'setToken', payload: data.token})
+        localStorage.setItem('token', data.token)
+        dispatch(addHint('Logged in'))
+    } catch (e) {
+        dispatch(addHint('Something went wrong', 0, 'error'))
+        console.warn(e)
+    }
 }
 
 export const logOut = () => async (dispatch) =>{
-    dispatch({type: 'setToken', payload: ''})
-    localStorage.setItem('token', '')
+    try {
+        dispatch({type: 'setToken', payload: ''})
+        localStorage.setItem('token', '')
+        dispatch(addHint('Logged out'))
+    } catch (e) {
+        console.warn(e)
+    }
 }
 
 export const setToken = (payload)=>({type: 'setToken', payload})

@@ -3,8 +3,28 @@
     height: var(--headerHeight);
     box-shadow: var(--panelShadow);
     z-index: var(--zHeader);
-    padding: 10px;
+    padding: 10px 25px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    
+    &Section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    &Left{
+        justify-content: flex-start;
+    }
+    
+    &Right{
+        justify-content: flex-end;
+    }
 }
+
+
+
+
+
+

@@ -47,12 +47,12 @@ const checkLogin = (val)=>{
 }
 
 const checkPassword = (val)=>{
-    const allowedChars = lowerCaseAlphabet+upperCaseAlphabet+digitsAlphabet
+    const minLength = 5
     
     return wrapChecker([
         [
-        'Пароль длиннее 6 символов',
-        (val) => (val && typeof(val)=='string' && val.length >= 6)
+        `Пароль длиннее ${minLength} символов`,
+        (val) => (val && typeof(val)=='string' && val.length >= minLength)
         ],[
         'В пароле есть цифры',
         (val) => val && [...val].filter(c => digitsAlphabet.includes(c)).length
@@ -117,12 +117,32 @@ export default function ModalLogin({onClose}){
         }
     }, [token])
     
+    function validInputs(testing = true){
+        if(testing){ return true }
+        
+        for(let test of checkLogin(loginInput)){
+            if(!test[1](loginInput)){
+                return false
+            }
+        }
+        for(let test of checkPassword(passwordInput)){
+            if(!test[1](passwordInput)){
+                return false
+            }
+        }
+        return true
+    }
+    
     function handleSignIn(){
-        dispatch(auth.fetchLogin(loginInput.trim(), passwordInput.trim()))
+        if(validInputs()){
+            dispatch(auth.fetchLogin(loginInput.trim(), passwordInput.trim()))
+        }
     }
     
     function handleSignUp(){
-        dispatch(auth.fetchRegister(loginInput.trim(), passwordInput.trim()))
+        if(validInputs()){
+            dispatch(auth.fetchRegister(loginInput.trim(), passwordInput.trim()))
+        }
     }
     
     return ReactDom.createPortal((
