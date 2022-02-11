@@ -11,6 +11,8 @@ import ModalLogin from '../../Modals/ModalLogin/ModalLogin'
 import * as rates from '../../../Redux/ratesReducer'
 import * as lists from '../../../Redux/listsReducer'
 import * as auth from '../../../Redux/authReducer'
+import * as hintsReducer from '../../../Redux/hintsReducer'
+
 
 export default function Body(props){
     const { showSignInModal } = useSelector(store => store.auth)
@@ -31,6 +33,10 @@ export default function Body(props){
     return (
         <div
         className={style.body}
+        onContextMenu = {(e)=>{
+            e.preventDefault()
+            dispatch(hintsReducer.addHint(`Click ${Date.now()}`))
+        }}
         >
             {showSignInModal &&
                 <ModalLogin onClose={()=>{dispatch(auth.setShowSignInModal(false))}}/>

@@ -6,8 +6,69 @@
     justify-content: flex-start;
     align-items: flex-end;
     flex-direction: column;
-    padding: 50px;
     padding-right: 0;
-    background-color: red;
     z-index: var(--zHints);
 }
+
+.Hint{
+    background-color: var(--colorText);
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 33vw;
+    
+    transition-duration: 500ms;
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    &Fading{
+        clip-path: inset(0 0 0 100%);
+    }
+    &Shrinking{
+        height: 0;
+        margin: 0;
+    }
+    
+    &Msg{
+        word-wrap: break-word;
+        font-size: 20px;
+        padding: 10px;
+        color: var(--colorBody);
+    }
+    
+    &CloseBtn{
+        $res: 40px;
+        width: $res;
+        height: $res;
+        font-size: 33px;
+        color: var(--colorBright);
+        border-radius: 50%;
+        background-color: #0005;
+        text-shadow: 1px 1px 1px var(--shadowColorA), -1px -1px 1px var(--shadowColorB);
+        
+        transition-duration: var(--defaultTransitionTime);
+        
+        &:hover{
+            transform: rotate(180deg) scale(1.25);
+            text-shadow: none;
+        }
+        
+        &Wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-self: stretch;
+            background-color: #fff5;
+            padding: 10px;
+            padding-right: 5px;
+            border-radius: 50% 0 0 50%;
+        }
+    }
+}
+
+
+
+
+
+
+
