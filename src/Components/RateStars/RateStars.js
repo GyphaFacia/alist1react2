@@ -12,7 +12,12 @@ export default function RateStars(props){
     const {rates} = useSelector(store => store.rates)
     
     React.useEffect(()=>{
-        setStarsRatio(getRateFromStore()/10)
+        if(props.fixedRate){
+            setStarsRatio(props.fixedRate/10)
+        }
+        else{
+            setStarsRatio(getRateFromStore()/10)
+        }
     }, [rates, props])
     
     function getClassName(){
@@ -20,11 +25,15 @@ export default function RateStars(props){
         if(props.className){
             classList.push(props.className)
         }
+        if(props.fixedRate){
+            classList.push(style.RateStarsFrozen)
+        }
         classList.push(style.RateStarsWrapper)
         return classList.join(' ')
     }
     
     function handleMouseMove(e){
+        if(props.fixedRate){return false}
         const {left, width} = e.target.getBoundingClientRect()
         const {clientX} = e
         const ratio = (clientX - left) / width
@@ -32,6 +41,7 @@ export default function RateStars(props){
     }
     
     function handleMouseLeave(){
+        if(props.fixedRate){return false}
         setIsHovered(false)
         setStarsRatio(getRateFromStore()/10)
     }
@@ -54,6 +64,7 @@ export default function RateStars(props){
     }
     
     function sendStarsToStore(){
+        if(props.fixedRate){return false}
         const rate = ratioToStars(starsRatio, true)
         const title = {url: props.titleLink}
         dispatch(ratesReducer.fetchSetRate(title, rate))
@@ -107,7 +118,8 @@ export default function RateStars(props){
             <span
             className = {style.RateStarsDigit}
             >
-                {isHovered && getRateStarsDigit()}
+                {isHovered && !props.fixedRate && getRateStarsDigit()}
+                {!!props.fixedRate && props.fixedRate}
             </span>
         </section>
     )

@@ -46,7 +46,88 @@
     }
 }
 
-
+.Title{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    
+    &Left{
+        width: 50%;
+        height: 100%;
+    }
+    
+    &Right{
+        margin-left: 30px;
+        width: 50%;
+        height: 100%;
+    }
+    
+    &Name{
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+    
+    &Thumb{
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    &Info{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        &Label{
+            font-style: italic;
+        }
+        
+        &Content{
+            margin-left: 20px;
+        }
+    }
+    
+    &Tag{
+        margin-right: 10px;
+        &s{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    
+    &Rates{
+        &Yours{
+            margin-top: 30px;
+        }
+        
+        &Label{
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    }
+    
+    &Descr{
+        margin-top: 20px;
+        &Label{
+            
+        }
+        
+        &Content{
+            $max: 550px;
+            font-style: italic;
+            padding: 10px;
+            &Wrapper{
+                overflow: hidden;
+                max-height: $max;
+            }
+            overflow: auto;
+            max-height: $max;
+        }
+    }
+}
 
 
 

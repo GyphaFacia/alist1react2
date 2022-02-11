@@ -6,10 +6,17 @@ import RateStars from '../RateStars/RateStars'
 import {BsFillPlusCircleFill} from 'react-icons/bs'
 import ModalAddToList from '../Modals/ModalAddTolist/ModalAddToList'
 import {MdOutlineExpandLess} from 'react-icons/md'
+import * as searchReducer from '../../Redux/searchReducer'
 
 function TitleThumb({title}){
+    const dispatch = useDispatch()
+    function handleThumbClick(){
+        dispatch(searchReducer.fetchItemPage(title.url))
+    }
+    
     return (
         <img
+        onClick = {handleThumbClick}
         className = {style.TitleCardThumb}
         src={title.thumb}
         alt={`Image for ${title.title}`}
