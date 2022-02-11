@@ -4,12 +4,25 @@ import style from './style.module.scss'
 //import * as reducer from '../Redux/SomeReducer'
 import Search from '../../Search/Search'
 import Auth from '../../Auth/Auth'
+import {BsStar} from 'react-icons/bs'
+import * as searchReducer from '../../../Redux/searchReducer'
 
 export default function Header(props){
-    // useDispatch
-    // useSelector
-    // useState
-    // useEffect
+    const {rates} = useSelector(store => store.rates)
+    const dispatch = useDispatch()
+    
+    function ratesToSearchItems(){
+        return rates.filter(
+            item => item.rate && +item.rate && item.rate > 0
+        ).map(
+            item => item.title
+        )
+    }
+    
+    function handleRatedClick(){
+        dispatch(searchReducer.setSearchInputValue('Rated'))
+        dispatch(searchReducer.setSearchItems(ratesToSearchItems()))
+    }
     
     return (
         <header
@@ -24,6 +37,12 @@ export default function Header(props){
             <section
             className={`${style.headerRight} ${style.headerSection}`}
             >
+                <div
+                onClick = {handleRatedClick}
+                className = {style.headerIcoBtn}
+                >
+                    <BsStar/>
+                </div>
                 <Auth/>
             </section>
         </header>

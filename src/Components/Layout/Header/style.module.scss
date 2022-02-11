@@ -21,6 +21,31 @@
     &Right{
         justify-content: flex-end;
     }
+    
+    &IcoBtn{
+        $res: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        margin-right: 25px;
+        border: 2px solid #0000;
+        border-radius: 50%;
+        width: $res;
+        height: $res;
+        box-shadow: var(--makeInset);
+        cursor: pointer;
+        
+        transition-duration: var(--defaultTransitionTime);
+        &:hover{
+            color: var(--colorBright);
+            border-color: var(--colorBright);
+        }
+        &:active{
+            color: var(--colorTextPlus);
+            border-color: var(--colorTextPlus);
+        }
+    }
 }
 
 
