@@ -17,7 +17,7 @@ export default function Body(props){
     const dispatch = useDispatch()
     
     React.useEffect(()=>{
-        dispatch(auth.logOut())
+        // dispatch(auth.logOut())
     }, [])
     
     React.useEffect(()=>{
