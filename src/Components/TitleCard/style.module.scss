@@ -8,7 +8,7 @@
     background-color: #fff1;
     overflow: hidden;
     margin: 10px;
-    padding: 20px 10px;
+    padding: 10px 10px 20px 10px;
     border-radius: 15px;
     
     font-size: 20px;
@@ -90,6 +90,7 @@
     }
     
     &:hover{
+        padding: 20px;
         & .TitleCardThumb{
             width: 240px;
             height: 240px;

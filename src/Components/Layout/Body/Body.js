@@ -7,6 +7,7 @@ import Main from '../Main/Main'
 import style from './style.module.scss'
 import Hints from '../../Hints/Hints'
 import ModalLogin from '../../Modals/ModalLogin/ModalLogin'
+import ModalTitle from '../../Modals/ModalTitle/ModalTitle'
 
 import * as rates from '../../../Redux/ratesReducer'
 import * as lists from '../../../Redux/listsReducer'
@@ -16,12 +17,9 @@ import * as hintsReducer from '../../../Redux/hintsReducer'
 
 export default function Body(props){
     const { showSignInModal } = useSelector(store => store.auth)
+    const { showTitleModal } = useSelector(store => store.search)
     const {token} = useSelector(store => store.auth)
     const dispatch = useDispatch()
-    
-    React.useEffect(()=>{
-        // dispatch(auth.logOut())
-    }, [])
     
     React.useEffect(()=>{
         if(token){
@@ -34,9 +32,8 @@ export default function Body(props){
         <div
         className={style.body}
         >
-            {showSignInModal &&
-                <ModalLogin onClose={()=>{dispatch(auth.setShowSignInModal(false))}}/>
-            }
+            {showSignInModal && <ModalLogin/>}
+            {showTitleModal && <ModalTitle/>}
             <Hints/>
             
             <Header/>

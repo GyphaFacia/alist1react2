@@ -105,7 +105,20 @@ function InputCheckList({value, checks}){
     )
 }
 
-export default function ModalLogin({onClose}){
+function CloseBtn(){
+    const dispatch = useDispatch()
+    
+    return (
+        <button
+        onClick = {()=>{dispatch(auth.setShowSignInModal(false))}}
+        className = {style.CloseBtn}
+        >
+            &times;
+        </button>
+    )
+}
+
+export default function ModalLogin(){
     const [loginInput, setLoginInput] = React.useState('')
     const [passwordInput, setPasswordInput] = React.useState('')
     const dispatch = useDispatch()
@@ -113,7 +126,7 @@ export default function ModalLogin({onClose}){
     
     React.useEffect(()=>{
         if(token && !'undefined null'.split(' ').includes(token)){
-            onClose()
+            dispatch(auth.setShowSignInModal(false))
         }
     }, [token])
     
@@ -151,14 +164,7 @@ export default function ModalLogin({onClose}){
         >
             <div
             className = {style.ModalLogin}
-            >
-                <button
-                onClick = {onClose}
-                className = {style.CloseBtn}
-                >
-                    &times;
-                </button>
-            
+            >            
                 <span>
                     <input
                     type="text"

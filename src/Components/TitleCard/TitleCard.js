@@ -5,6 +5,7 @@ import style from './style.module.scss'
 import RateStars from '../RateStars/RateStars'
 import {BsFillPlusCircleFill} from 'react-icons/bs'
 import ModalAddToList from '../Modals/ModalAddTolist/ModalAddToList'
+import {MdOutlineExpandLess} from 'react-icons/md'
 
 function TitleThumb({title}){
     return (
@@ -60,12 +61,12 @@ function AddToListPortal({title}){
 }
 
 export default function TitleCard({title}){
-    const [hovered, setHovered] = React.useState(true)
+    const [hovered, setHovered] = React.useState(false)
     const { searchInputValue, searchInputFocus } = useSelector(store => store.search)
     
-    function cropTitle(){
-        if(title.title.length > 28){
-            return hovered ? title.title : `${title.title.slice(0, 25)}...`
+    function cropTitle(maxlen = 25){
+        if(title.title.length > maxlen){
+            return hovered ? title.title : `${title.title.slice(0, maxlen)}...`
         }
         return title.title
     }
@@ -104,6 +105,8 @@ export default function TitleCard({title}){
             
             <TitleYear title={title}/>
             <TitleType title={title}/>
+            
+            {!hovered && <MdOutlineExpandLess/>}
         </div>
     )
 }
