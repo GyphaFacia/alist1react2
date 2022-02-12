@@ -30,7 +30,7 @@ export default function TitlesGrid(props){
                         delay: i/15,
                         duration: 0.33,
                     }}
-                    key = {i + Date.now() + title.title}
+                    key = {title.title}
                 >
                     <TitleCard
                         title = {title}

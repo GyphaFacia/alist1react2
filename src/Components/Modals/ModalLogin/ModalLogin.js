@@ -5,6 +5,8 @@ import ReactDom from 'react-dom'
 import * as auth from '../../../Redux/authReducer'
 import {BsShieldCheck, BsShieldExclamation} from 'react-icons/bs'
 
+import {motion} from 'framer-motion'
+
 const chr = (i) => String.fromCharCode(i)
 const ord = (c) => c.charCodeAt(0)
 const chrAlphabet = (a, b)=>{
@@ -82,11 +84,11 @@ function InputCheckList({value, checks}){
                     >
                         {test[1](value) ?
                         <BsShieldCheck
-                        style={{fill: 'lime'}}
+                        style={{fill: 'var(--colorBright)'}}
                         />
                         :
                         <BsShieldExclamation
-                        style={{fill: 'red'}}
+                        style={{fill: 'var(--colorText)'}}
                         />
                         }
                     </span>
@@ -162,8 +164,14 @@ export default function ModalLogin(){
         <aside
         className = {style.ModalLoginWrapper}
         >
-            <div
+            <motion.div
             className = {style.ModalLogin}
+            initial={{
+                y: '100vh',
+            }}
+            animate={{
+                y: 0,
+            }}
             >
                 <CloseBtn/>
             
@@ -208,7 +216,7 @@ export default function ModalLogin(){
                 value = {passwordInput}
                 checks = {checkPassword}
                 />
-            </div>
+            </motion.div>
         </aside>
     ), document.querySelector('#portal'))
 }

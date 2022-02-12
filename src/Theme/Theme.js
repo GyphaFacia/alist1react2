@@ -40,7 +40,7 @@ export function setTheme(newTheme){
 }
 
 let defaultTheme = darkTheme
-// defaultTheme = lightTheme
+defaultTheme = lightTheme
 setTheme(defaultTheme)
 
 export const Motions = {

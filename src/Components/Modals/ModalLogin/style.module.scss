@@ -2,7 +2,7 @@
     background-color: var(--colorBody);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 0 10px 0 #fff, 0 0 0 100vmax #000a;
+    box-shadow: 0 0 10px 0 var(--colorBright), 0 0 0 100vmax #000a;
     z-index: var(--zModal);
     font-size: 24px;
     display: flex;

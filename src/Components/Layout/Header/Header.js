@@ -47,8 +47,15 @@ export default function Header(props){
     ]
     
     function handleAuthBtnClick(){
-        if(!!token){ dispatch(authReducer.logOut()) }
-        else{ dispatch(authReducer.setShowSignInModal(true)) }
+        if(!!token){
+            dispatch(authReducer.logOut())
+            setTimeout(()=>{
+                document.location.reload()
+            }, 500)
+        }
+        else{
+            dispatch(authReducer.setShowSignInModal(true))
+        }
     } 
     
     return (
