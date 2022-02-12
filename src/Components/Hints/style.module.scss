@@ -1,7 +1,6 @@
 .Hints{
-    padding-top: var(--headerHeight);
     position: fixed;
-    top: 0;
+    top: var(--headerHeight);
     right: 0;
     display: flex;
     justify-content: flex-start;
