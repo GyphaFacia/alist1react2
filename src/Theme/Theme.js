@@ -9,8 +9,8 @@ export const darkTheme = {
     colorStars: '#fa0',
 
     shadowColorPanel: '#0005',
-    shadowColorA: '#000a',
-    shadowColorB: '#fff3',
+    shadowColorA: '#0005',
+    shadowColorB: '#fff2',
 }
 
 export function setTheme(newTheme){

@@ -52,7 +52,6 @@ function isTokenExpired(token){
 
 export function handleAuth(dispatch, token){
     token = token ? token : localStorage.getItem('token')
-    console.log(`isTokenExpired: ${isTokenExpired(token)}`)
     if(!token || isTokenExpired(token)){
         dispatch(logOut('silent'))
         dispatch({type: 'setShowSignInModal', payload: true})
