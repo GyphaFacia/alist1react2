@@ -7,7 +7,7 @@ import * as searchReducer from '../../../Redux/searchReducer'
 
 const MainPage = ()=>{        
     return (
-        <TitlesGrid/>
+        <div>MainPage</div>
     )
 }
 
@@ -56,6 +56,47 @@ const SearchPage = ()=>{
     )
 }
 
+const ListsPage = ()=>{
+    const [activeList, setActiveList] = React.useState(0)
+    const {lists} = useSelector(store => store.lists)
+    const nonemptylists = () => lists.filter(list => list.content && list.content.length)
+    const listnames = () => nonemptylists().map(list => list.list)
+    
+    const listClassName = (i) => (i==activeList? 
+        `${style.ListsPageListName} ${style.ListsPageListNameActive}`
+        :
+        style.ListsPageListName
+    )
+    
+    const getTitlesOfActiveList = ()=>{
+        try {
+            const activeListName = listnames()[activeList]
+            return lists.filter(
+                list => list.list == activeListName
+            ).pop().content
+        } catch (e) {}
+        return []
+    }
+    
+    return (
+        <>
+        <section
+        className = {style.ListsPageListNames}
+        >
+            {listnames().map((listname, i)=>
+                <div key={i}
+                className = {listClassName(i)}
+                onClick = {()=>setActiveList(i)}
+                >{listname}</div>
+            )}
+        </section>
+        <TitlesGrid
+        titles = {getTitlesOfActiveList()}
+        />
+        </>
+    )
+}
+
 export default function Main(props){
     const routes = useRoutes([
         {
@@ -73,6 +114,10 @@ export default function Main(props){
         {
             path: 'rates/',
             element: <RatesPage/>,
+        },
+        {
+            path: 'lists/',
+            element: <ListsPage/>,
         },
     ])    
     

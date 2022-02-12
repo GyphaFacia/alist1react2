@@ -54,21 +54,20 @@ export default function Header(props){
             className={`${style.headerRight} ${style.headerSection}`}
             >
                 <IcoBtn
-                title = {'Оценено'}
-                link = {`rates`}
-                icon = {<BsStar/>}
-                />
-                <IcoBtn
                 title = {'Поиск'}
                 link = {`search`}
                 icon = {<BsSearch/>}
+                />
+                <IcoBtn
+                title = {'Оценено'}
+                link = {`rates`}
+                icon = {<BsStar/>}
                 />
                 <IcoBtn
                 title = {'Списки'}
                 link = {`lists`}
                 icon = {<BsList/>}
                 />
-                
                 <IcoBtn
                 title = {!token ? 'Войти' : 'Выйти'}
                 onClick = {handleAuthBtnClick}

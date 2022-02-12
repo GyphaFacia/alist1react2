@@ -14,6 +14,7 @@
     height: 100%;
     
     &Wrapper{
+        z-index: var(--zModal);
         position: fixed;
         left: 50%;
         top: 50%;

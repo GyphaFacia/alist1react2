@@ -12,12 +12,14 @@
     position: relative;
     width: 100%;
     height: 100%;
-    
+
     &Wrapper{
+        z-index: var(--zModal);
         position: fixed;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        max-height: 90vh;
     }
 }
 
@@ -54,6 +56,10 @@
     &Left{
         width: 50%;
         height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 80vh;
+        padding-right: 20px;
     }
     
     &Right{

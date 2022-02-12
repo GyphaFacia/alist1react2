@@ -164,7 +164,9 @@ export default function ModalLogin(){
         >
             <div
             className = {style.ModalLogin}
-            >            
+            >
+                <CloseBtn/>
+            
                 <span>
                     <input
                     type="text"
