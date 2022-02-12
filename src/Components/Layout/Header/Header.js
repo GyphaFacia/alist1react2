@@ -3,8 +3,7 @@ import React from 'react'
 import style from './style.module.scss'
 import Search from '../../Search/Search'
 import {BsStar, BsSearch, BsList, BsPerson} from 'react-icons/bs'
-import * as searchReducer from '../../../Redux/searchReducer'
-import * as authReducer from '../../../Redux/authReducer'
+import {searchReducer, authReducer} from '../../../Redux/reducers'
 import {Link} from 'react-router-dom'
 
 function IcoBtn(props){

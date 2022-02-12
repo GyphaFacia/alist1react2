@@ -2,7 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import ReactDom from 'react-dom'
-import * as searchReducer from '../../../Redux/searchReducer'
+import {searchReducer} from '../../../Redux/reducers'
 import RateStars from '../../RateStars/RateStars'
 
 

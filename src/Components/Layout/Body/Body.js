@@ -1,18 +1,16 @@
 import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
-//import * as reducer from '../Redux/SomeReducer'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Main from '../Main/Main'
 import style from './style.module.scss'
 import Hints from '../../Hints/Hints'
-import ModalLogin from '../../Modals/ModalLogin/ModalLogin'
-import ModalTitle from '../../Modals/ModalTitle/ModalTitle'
+import {ModalLogin, ModalTitle} from '../../Modals/Modals'
 
 import * as rates from '../../../Redux/ratesReducer'
 import * as lists from '../../../Redux/listsReducer'
 import * as auth from '../../../Redux/authReducer'
-import * as hintsReducer from '../../../Redux/hintsReducer'
+import {hintsReducer} from '../../../Redux/reducers'
 
 
 export default function Body(props){

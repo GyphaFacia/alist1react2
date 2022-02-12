@@ -1,7 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
-import * as search from '../../Redux/searchReducer'
+import {searchReducer} from '../../Redux/reducers'
 import {BsSearch} from 'react-icons/bs'
 import {useNavigate} from 'react-router-dom' 
 
@@ -11,7 +11,7 @@ export default function Search(props){
     const { searchInputValue } = useSelector(store => store.search)
     
     function setSearchInputValue(val){
-        dispatch(search.setSearchInputValue(val))
+        dispatch(searchReducer.setSearchInputValue(val))
     }
     
     function handleSearchInput(e){
@@ -29,11 +29,11 @@ export default function Search(props){
     }
     
     function handleSearchBlur(){
-        dispatch(search.setSearchInputFocus(false))
+        dispatch(searchReducer.setSearchInputFocus(false))
     }
     
     function handleSearchFocus(){
-        dispatch(search.setSearchInputFocus(true))
+        dispatch(searchReducer.setSearchInputFocus(true))
     }
     
     return (

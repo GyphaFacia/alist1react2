@@ -2,7 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import {BsStar, BsStarHalf, BsStarFill} from 'react-icons/bs'
-import * as ratesReducer from '../../Redux/ratesReducer'
+import {ratesReducer} from '../../Redux/reducers'
 
 export default function RateStars(props){
     const dispatch = useDispatch()

@@ -3,7 +3,7 @@ import React from 'react'
 import style from './style.module.scss'
 import TitlesGrid from '../../TitlesGrid/TitlesGrid'
 import {Routes, Route, useRoutes, useParams} from 'react-router-dom'
-import * as searchReducer from '../../../Redux/searchReducer'
+import {searchReducer} from '../../../Redux/reducers'
 
 const MainPage = ()=>{        
     return (

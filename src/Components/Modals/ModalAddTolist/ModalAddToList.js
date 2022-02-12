@@ -2,8 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import ReactDom from 'react-dom'
-import * as listsReducer from '../../../Redux/listsReducer'
-import * as authReducer from '../../../Redux/authReducer'
+import {listsReducer, authReducer} from '../../../Redux/reducers'
 import {BsCheckLg} from 'react-icons/bs'
 
 function NewList({title}){

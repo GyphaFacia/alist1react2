@@ -1,7 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
-import * as hintsReducer from '../../Redux/hintsReducer'
+import {hintsReducer} from '../../Redux/reducers'
 
 function Hint({hint}){
     const dispatch = useDispatch()
