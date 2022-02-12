@@ -2,7 +2,6 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import pic from '../../../Images/unDraw/undraw_not_found_-60-pq.svg'
-//import * as reducer from '../Redux/SomeReducer'
 import {motion} from 'framer-motion'
 
 export default function UnDrawPic(props){
@@ -18,7 +17,7 @@ export default function UnDrawPic(props){
         }}
         transition={{
             duration: 0.33,
-            delay: 0.5,
+            delay: 0.25,
         }}
         
         className = {style.UnDrawPic}
