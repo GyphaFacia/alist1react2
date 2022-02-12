@@ -16,36 +16,7 @@
     }
 }
 
-.ListsPage{
-    &ListNames{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-wrap: wrap;    
-        font-size: 24px;
-    }
-    
-    &ListName{
-        padding: 10px;
-        border: 2px solid #0000;
-        color: var(--colorText);
-        border-radius: 10px;
-        margin: 5px;
-        cursor: pointer;
-        transition-duration: var(--defaultTransitionTime);
-        box-shadow: var(--makeInset);
-        
-        &:hover{
-            color: var(--colorTextPlus);
-            border-color: var(--colorTextPlus);
-        }
-        
-        &Active, &Active:hover{
-            color: var(--colorBright);
-            border-color: var(--colorBright);
-        }
-    }
-}
+
 
 
 

@@ -1,9 +1,10 @@
-import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {useNavigate} from 'react-router-dom' 
 import style from './style.module.scss'
+
 import {searchReducer} from '../../Redux/reducers'
 import {BsSearch} from 'react-icons/bs'
-import {useNavigate} from 'react-router-dom' 
 
 export default function Search(props){
     const dispatch = useDispatch()

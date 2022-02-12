@@ -1,11 +1,13 @@
 import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
+
 import RateStars from '../RateStars/RateStars'
-import {BsFillPlusCircleFill} from 'react-icons/bs'
 import {ModalAddToList} from '../Modals/Modals'
-import {MdOutlineExpandLess} from 'react-icons/md'
 import {searchReducer} from '../../Redux/reducers'
+
+import {BsFillPlusCircleFill} from 'react-icons/bs'
+import {MdOutlineExpandLess} from 'react-icons/md'
 
 function TitleThumb({title}){
     const dispatch = useDispatch()

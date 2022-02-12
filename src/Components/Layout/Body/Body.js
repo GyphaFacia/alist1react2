@@ -1,17 +1,11 @@
-import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
-import Main from '../Main/Main'
+import {useSelector, useDispatch} from 'react-redux'
 import style from './style.module.scss'
+
 import Hints from '../../Hints/Hints'
+import {Header, Footer, Main} from '../Layout.js'
 import {ModalLogin, ModalTitle} from '../../Modals/Modals'
-
-import * as rates from '../../../Redux/ratesReducer'
-import * as lists from '../../../Redux/listsReducer'
-import * as auth from '../../../Redux/authReducer'
-import {hintsReducer} from '../../../Redux/reducers'
-
+import {ratesReducer, listsReducer} from '../../../Redux/reducers'
 
 export default function Body(props){
     const { showSignInModal } = useSelector(store => store.auth)
@@ -21,8 +15,8 @@ export default function Body(props){
     
     React.useEffect(()=>{
         if(token){
-            dispatch(rates.fetchRates())
-            dispatch(lists.fetchGetAllLists())
+            dispatch(ratesReducer.fetchRates())
+            dispatch(listsReducer.fetchGetAllLists())
         }
     }, [token])
     

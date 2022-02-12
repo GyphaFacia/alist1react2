@@ -3,24 +3,19 @@ import React from 'react'
 import {useDispatch, useSelector, Provider} from 'react-redux'
 import store from './Redux/Store'
 import * as theme from './Theme/Theme'
-import Body from './Components/Layout/Body/Body'
+import {Body} from './Components/Layout/Layout'
 import {BrowserRouter} from 'react-router-dom'
 
 export default function App() {
-// useDispatch
-// useSelector
-// useState
-// useEffect
-
-return (
-    <Provider store = {store}>
-        <BrowserRouter>
-            <div className="App"
-            >
-                <Body/>
-            </div>
-        </BrowserRouter>
-    </Provider>
+    return (
+        <Provider store = {store}>
+            <BrowserRouter>
+                <div className="App"
+                >
+                    <Body/>
+                </div>
+            </BrowserRouter>
+        </Provider>
     )
 }
 
