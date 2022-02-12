@@ -23,7 +23,7 @@ const SearchPage = ()=>{
     
     function getHeadingTitle(){
         if(req){
-            return `Результаты поиска «{req}» :`
+            return `Результаты поиска «${req}» :`
         }
         return 'Введите поисковый запрос в поле выше'
     }

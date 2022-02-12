@@ -26,7 +26,7 @@ export const fetchGetAllLists = (token) => async (dispatch) =>{
         dispatch({type: 'setLists', payload: data.message})
     } catch (e) {
         console.warn(e)
-        dispatch(addHint('Error loading lists', 0, 'error'))
+        dispatch(addHint('Сбой загрузки списков', 0, 'error'))
     }
 }
 
@@ -43,10 +43,10 @@ export const fetchAddToList = (list, title, token) => async (dispatch) =>{
         const body = {token, list, title}
         const {data} = await axios.post(link, body, {headers})
         dispatch({type: 'setLists', payload: data.message})
-        dispatch(addHint(`Title added to ${list} list`))
+        dispatch(addHint(`Тайтл добавлен в список ${list}`))
     } catch (e) {
         console.warn(e)
-        dispatch(addHint('Error adding title to list', 0, 'error'))
+        dispatch(addHint('Сбой добавления в список', 0, 'error'))
     }
 }
 
@@ -64,9 +64,9 @@ export const fetchRemoveFromList = (list, title, token) => async (dispatch) =>{
         console.log('here');
         const {data} = await axios.post(link, body, {headers})
         dispatch({type: 'setLists', payload: data.message})
-        dispatch(addHint(`Title removed from ${list} list`))
+        dispatch(addHint(`Тайтл удалён из списка ${list}`))
     } catch (e) {
-        dispatch(addHint('Error removing title from list', 0, 'error'))
+        dispatch(addHint('Сбой удаления из списка', 0, 'error'))
     }
 }
 

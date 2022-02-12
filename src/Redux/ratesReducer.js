@@ -22,6 +22,7 @@ export const fetchRates = (token) => async (dispatch) =>{
         const {data} = await axios.post(link, body, {headers})
         dispatch({type: 'setRates', payload: data.message})
     } catch (e) {
+        dispatch(addHint('Что-то пошло не так', 0, 'error'))
         console.warn(e)
     }
 }
@@ -39,10 +40,10 @@ export const fetchSetRate = (title, rate, token) => async (dispatch) =>{
         const {data} = await axios.post(link, body, {headers})
         console.log(data);
         dispatch({type: 'setRates', payload: data.message})
-        dispatch(addHint('Title rated'))
+        dispatch(addHint('Оценка сохранена'))
     } catch (e) {
         console.warn(e)
-        dispatch(addHint('Something went wrong', 0, 'error'))
+        dispatch(addHint('Что-то пошло не так', 0, 'error'))
     }
 }
 

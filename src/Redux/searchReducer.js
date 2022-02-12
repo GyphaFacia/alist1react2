@@ -15,20 +15,20 @@ const API = 'https://frozen-ocean-51941.herokuapp.com/api'
 // /api/alist/search << search
 export const fetchSearchPage = (searchReq) => async (dispatch) =>{
     try {
-        dispatch(addHint('Searching...', 2000))
+        dispatch(addHint('Ищем...', 2000))
         const link = `${API}/alist/search?search=${searchReq}`
         const {data} = await axios.get(link)
         dispatch({type: 'setSearchItems', payload: data.message})
     } catch (e) {
         console.warn(e)
-        dispatch(addHint('Error while searching', 0, 'error'))
+        dispatch(addHint('Сбой поиска', 0, 'error'))
     }
 }
 // /api/alist/item << titleId
 export const fetchItemPage = (titleId) => async (dispatch) =>{
     try {
         titleId = titleId.split('animes/').pop()
-        dispatch(addHint('Loading...', 2000))
+        dispatch(addHint('Загружаю...', 2000))
         const link = `${API}/alist/item?link=${titleId}`
         const {data} = await axios.get(link)
         dispatch({type: 'setCurrentItem', payload: data.message})
@@ -36,7 +36,7 @@ export const fetchItemPage = (titleId) => async (dispatch) =>{
         console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     } catch (e) {
         console.warn(e)
-        dispatch(addHint('Error while loading title info', 0, 'error'))
+        dispatch(addHint('Сбой загрузки доп. инфо', 0, 'error'))
     }
 }
 

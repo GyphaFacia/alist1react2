@@ -16,9 +16,9 @@ export const fetchRegister = (login, password) => async (dispatch) =>{
         const headers = {'Content-Type': 'application/json'}
         const body = {login, password}
         const {data} = await axios.post(link, body, {headers})
-        dispatch(addHint('User created'))
+        dispatch(addHint('Пользователь создан'))
     } catch (e) {
-        dispatch(addHint('Something went wrong', 0, 'error'))
+        dispatch(addHint('Что-то пошло не так', 0, 'error'))
         console.warn(e)
     }
 }
@@ -32,9 +32,9 @@ export const fetchLogin = (login, password) => async (dispatch) =>{
         const {data} = await axios.post(link, body, {headers})
         dispatch({type: 'setToken', payload: data.token})
         localStorage.setItem('token', data.token)
-        dispatch(addHint('Logged in'))
+        dispatch(addHint('Вы вошли в аккаунт'))
     } catch (e) {
-        dispatch(addHint('Something went wrong', 0, 'error'))
+        dispatch(addHint('Что-то пошло не так', 0, 'error'))
         console.warn(e)
     }
 }
@@ -43,7 +43,7 @@ export const logOut = () => async (dispatch) =>{
     try {
         dispatch({type: 'setToken', payload: ''})
         localStorage.setItem('token', '')
-        dispatch(addHint('Logged out'))
+        dispatch(addHint('Вы вышли из аккаунта'))
     } catch (e) {
         console.warn(e)
     }
