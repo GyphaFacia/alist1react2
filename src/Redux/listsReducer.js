@@ -14,9 +14,8 @@ const API = 'https://frozen-ocean-51941.herokuapp.com/api'
 
 // /api/rates/getalllists << token
 export const fetchGetAllLists = (token) => async (dispatch) =>{
-    if(!handleAuth(dispatch, token)){
-        return false
-    }
+    token = handleAuth(dispatch, token)
+    if(!token){return false}
     try {
         const link = `${API}/rates/getalllists`
         const headers = {'Content-Type': 'application/json'}
@@ -31,9 +30,8 @@ export const fetchGetAllLists = (token) => async (dispatch) =>{
 
 // /api/rates/addtolist << token, list, title
 export const fetchAddToList = (list, title, token) => async (dispatch) =>{
-    if(!handleAuth(dispatch, token)){
-        return false
-    }
+    token = handleAuth(dispatch, token)
+    if(!token){return false}
     try {
         const link = `${API}/rates/addtolist`
         const headers = {'Content-Type': 'application/json'}
@@ -49,9 +47,8 @@ export const fetchAddToList = (list, title, token) => async (dispatch) =>{
 
 // /api/rates/removefromlist << token, list, title
 export const fetchRemoveFromList = (list, title, token) => async (dispatch) =>{
-    if(!handleAuth(dispatch, token)){
-        return false
-    }
+    token = handleAuth(dispatch, token)
+    if(!token){return false}
     try {
         const link = `${API}/rates/removefromlist`
         const headers = {'Content-Type': 'application/json'}

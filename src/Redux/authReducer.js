@@ -41,15 +41,25 @@ export const fetchLogin = (login, password) => async (dispatch) =>{
     }
 }
 
+function isTokenExpired(token){
+    try {
+        return Date.now() >= (JSON.parse(atob(token.split('.')[1]))).exp * 1000
+    } catch (e) {
+        return true
+    }
+    return true
+}
+
 export function handleAuth(dispatch, token){
     token = token ? token : localStorage.getItem('token')
-    if(!token){
+    console.log(`isTokenExpired: ${isTokenExpired(token)}`)
+    if(!token || isTokenExpired(token)){
         dispatch(logOut('silent'))
         dispatch({type: 'setShowSignInModal', payload: true})
         return false
     }
     else{
-        return true
+        return token
     }
 }
 
