@@ -1,4 +1,12 @@
 .PageLists{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: var(--mainHeight);
+    
     &ListNames{
         display: flex;
         justify-content: flex-start;

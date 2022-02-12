@@ -3,13 +3,33 @@ export const darkTheme = {
     colorBody: '#3a3a3a',
     colorText: '#ccc',
     colorTextPlus: '#eee',
-    colorBright: '#af0',
+    colorBright: '#0af',
+    colorTransparent: '#000a',
+    
+    pictureFilter: 'sepia(1) invert(1) saturate(1.5) brightness(1.25)',
     
     colorStars: '#fa0',
 
     shadowColorPanel: '#0005',
     shadowColorA: '#0005',
     shadowColorB: '#fff2',
+}
+
+export const lightTheme = {
+    themeName: 'Light theme',
+    colorBody: '#eee',
+    colorText: '#333',
+    colorTextPlus: '#111',
+    colorBright: '#0af',
+    colorTransparent: '#fffa',
+    
+    pictureFilter: 'sepia(1) hue-rotate(180deg)',
+    
+    colorStars: '#fa0',
+
+    shadowColorPanel: '#0002',
+    shadowColorA: '#0002',
+    shadowColorB: '#fff',
 }
 
 export function setTheme(newTheme){
@@ -20,7 +40,8 @@ export function setTheme(newTheme){
 }
 
 let defaultTheme = darkTheme
-setTheme(darkTheme)
+// defaultTheme = lightTheme
+setTheme(defaultTheme)
 
 export const Motions = {
     glowIn:{

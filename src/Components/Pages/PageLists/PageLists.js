@@ -6,6 +6,7 @@ import TitlesGrid from '../../TitlesGrid/TitlesGrid'
 
 import {motion} from 'framer-motion'
 import {Motions} from '../../../Theme/Theme'
+import {UnDrawPic} from '../../Misc/Misc'
 
 export default function PageLists(){
     const [activeList, setActiveList] = React.useState(0)
@@ -30,7 +31,9 @@ export default function PageLists(){
     }
     
     return (
-        <>
+        <main
+        className = {style.PageLists}
+        >
         <section
         className = {style.PageListsListNames}
         >
@@ -42,6 +45,7 @@ export default function PageLists(){
             )}
             
             {!listnames().length &&
+                <>
                 <motion.h1
                 variants = {Motions}
                 initial='glowOutText'
@@ -54,11 +58,13 @@ export default function PageLists(){
                     repeatDelay: 0.1,
                 }}
                 >Вы не создали ни одного списка</motion.h1>
+                <UnDrawPic/>
+                </>
             }
         </section>
         <TitlesGrid
         titles = {getTitlesOfActiveList()}
         />
-        </>
+        </main>
     )
 }

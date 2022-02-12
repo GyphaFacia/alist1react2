@@ -1,4 +1,23 @@
+.MainPage{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: var(--mainHeight);
+}
+
+.Pic{
+    filter: var(--pictureFilter);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: var(--zBg);
+}
+
 .Help{
+    z-index: var(--zFg);
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
@@ -17,7 +36,7 @@
         justify-content: space-between;
         align-items: center;
         border-radius: 100vmax;
-        background-color: #0001;
+        background-color: var(--colorTransparent);
         cursor: pointer;
         
         transition-duration: var(--defaultTransitionTime);

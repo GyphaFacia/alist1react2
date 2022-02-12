@@ -1,0 +1,10 @@
+.UnDrawPic{
+    filter: var(--pictureFilter);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: var(--zBg);
+    min-width: 90vw;
+    max-width: 90vw;
+    max-height: calc(var(--mainHeight) - 100px);
+}

@@ -30,11 +30,11 @@ export default function TitlesGrid(props){
                         delay: i/15,
                         duration: 0.33,
                     }}
+                    key = {i + Date.now() + title.title}
                 >
-                <TitleCard
-                    key = {i + Math.random() + title.title}
-                    title = {title}
-                />
+                    <TitleCard
+                        title = {title}
+                    />
                 </motion.span>
             )}
         </section>

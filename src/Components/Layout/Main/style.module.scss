@@ -3,7 +3,7 @@
     overflow: hidden;
     &Content{
         width: 100vw;
-        max-height: calc(100vh - var(--headerHeight) - var(--footerHeight));
+        max-height: var(--mainHeight);
         padding: 10px;
         
         display: flex;

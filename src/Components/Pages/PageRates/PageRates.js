@@ -6,6 +6,7 @@ import TitlesGrid from '../../TitlesGrid/TitlesGrid'
 
 import {motion} from 'framer-motion'
 import {Motions} from '../../../Theme/Theme'
+import {UnDrawPic} from '../../Misc/Misc'
 
 export default function RatesPage(){
     const { rates } = useSelector(store => store.rates)
@@ -18,7 +19,9 @@ export default function RatesPage(){
     }
     
     return (
-        <>
+        <main
+        className = {style.RatesPage}
+        >
             <motion.h1
             style={{width: '100%'}}
             variants = {Motions}
@@ -35,6 +38,10 @@ export default function RatesPage(){
             <TitlesGrid
             titles = {ratesToSearchItems()}
             />
-        </>
+            
+            {!ratesToSearchItems().length && 
+                <UnDrawPic/>
+            }
+        </main>
     )
 }

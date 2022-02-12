@@ -19,12 +19,13 @@
     }
     
     &Input:hover, &GoButton:hover{
-        color: var(--colorTextPlus);
-        border-color: var(--colorTextPlus);
+        color: var(--colorTextPlus) !important;
+        border-color: var(--colorTextPlus) !important;
     }
+    
     &Input:focus, &GoButton:active{
-        color: var(--colorBright);
-        border-color: var(--colorBright);
+        color: var(--colorBright) !important;
+        border-color: var(--colorBright) !important;
     }
     
     &GoButton{

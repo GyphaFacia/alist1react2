@@ -10,10 +10,14 @@
     --zModal: 2000;
     --zHints: 3000;
     
+    --zBg: 250;
+    --zFg: 500;
+    
     --defaultTransitionTime: 255ms;
     
     --headerHeight: 75px;
     --footerHeight: 45px;
+    --mainHeight: calc(100vh - var(--headerHeight) - var(--footerHeight));
     
     --panelShadow: 0 0 50px 0 var(--shadowColorPanel);
     --makeOutset: 

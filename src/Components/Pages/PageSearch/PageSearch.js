@@ -7,6 +7,7 @@ import {useParams} from 'react-router-dom'
 
 import {motion} from 'framer-motion'
 import {Motions} from '../../../Theme/Theme'
+import {UnDrawPic} from '../../Misc/Misc'
 
 export default function SearchPage(){
     const dispatch = useDispatch()
@@ -26,22 +27,27 @@ export default function SearchPage(){
     }
     
     return (
-        <>
-        <motion.h1
-        style={{width: '100%'}}
-        variants = {Motions}
-        initial='glowOutText'
-        animate='glowInText'
-        transition={{
-            delay: 0.25,
-            duration: 0.25,
-            repeatType: 'mirror',
-            repeat: 1,
-            repeatDelay: 0.1,
-        }}
-        >{getHeadingTitle()}</motion.h1>
-        {req && <TitlesGrid/>}
-        </>
+        <main
+        className = {style.PageSearch}
+        >
+            <motion.h1
+            style={{width: '100%'}}
+            variants = {Motions}
+            initial='glowOutText'
+            animate='glowInText'
+            transition={{
+                delay: 0.25,
+                duration: 0.25,
+                repeatType: 'mirror',
+                repeat: 1,
+                repeatDelay: 0.1,
+            }}
+            >{getHeadingTitle()}</motion.h1>
+            
+            {req && <TitlesGrid/>}
+            
+            {!req && <UnDrawPic/>}
+        </main>
     )
 }
 
