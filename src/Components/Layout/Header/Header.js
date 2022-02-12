@@ -1,38 +1,44 @@
 import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
-//import * as reducer from '../Redux/SomeReducer'
 import Search from '../../Search/Search'
-import Auth from '../../Auth/Auth'
-import {BsStar} from 'react-icons/bs'
+import {BsStar, BsSearch, BsList, BsPerson} from 'react-icons/bs'
 import * as searchReducer from '../../../Redux/searchReducer'
+import * as authReducer from '../../../Redux/authReducer'
+import {Link} from 'react-router-dom'
 
 function IcoBtn(props){
+    const Btn = (props)=>(<button {...props}/>)
+    const LinkOrBtn = props.onClick ?  Btn : Link
+    
     return(
-        <div
-        className = {style.headerIcoBtn}
+        <LinkOrBtn
+        to={props.link}
+        className = {style.headerIcoBtnLink}
+        onClick = {props.onClick}
         >
-            {props.icon}
-        </div>
+            <div
+            className = {style.headerIcoBtn}
+            >
+                {props.icon}
+                <div
+                className = {style.headerIcoBtnTitle}
+                >
+                    {props.title}
+                </div>
+            </div>
+        </LinkOrBtn>
     )
 }
 
 export default function Header(props){
-    const {rates} = useSelector(store => store.rates)
+    const { token } = useSelector(store => store.auth)
     const dispatch = useDispatch()
     
-    function ratesToSearchItems(){
-        return rates.filter(
-            item => item.rate && +item.rate && item.rate > 0
-        ).map(
-            item => item.title
-        )
-    }
-    
-    function handleRatedClick(){
-        dispatch(searchReducer.setSearchInputValue('Rated'))
-        dispatch(searchReducer.setSearchItems(ratesToSearchItems()))
-    }
+    function handleAuthBtnClick(){
+        if(!!token){ dispatch(authReducer.logOut()) }
+        else{ dispatch(authReducer.setShowSignInModal(true)) }
+    } 
     
     return (
         <header
@@ -48,10 +54,26 @@ export default function Header(props){
             className={`${style.headerRight} ${style.headerSection}`}
             >
                 <IcoBtn
-                onClick = {handleRatedClick}
+                title = {'Оценено'}
+                link = {`rates`}
                 icon = {<BsStar/>}
                 />
-                <Auth/>
+                <IcoBtn
+                title = {'Поиск'}
+                link = {`search`}
+                icon = {<BsSearch/>}
+                />
+                <IcoBtn
+                title = {'Списки'}
+                link = {`lists`}
+                icon = {<BsList/>}
+                />
+                
+                <IcoBtn
+                title = {!token ? 'Войти' : 'Выйти'}
+                onClick = {handleAuthBtnClick}
+                icon = {<BsPerson/>}
+                />
             </section>
         </header>
     )

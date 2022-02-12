@@ -30,16 +30,34 @@
         font-size: 22px;
         margin-right: 25px;
         border: 2px solid #0000;
-        border-radius: 50%;
-        width: $res;
+        border-radius: 100vmax;
+        width: auto;
+        min-width: $res;
+        max-width: $res;
         height: $res;
         box-shadow: var(--makeInset);
         cursor: pointer;
+        color: var(--colorText);
+        
+        &Link{
+            text-decoration: none;
+        }
+        
+        &Title{
+            display: none;
+        }
         
         transition-duration: var(--defaultTransitionTime);
         &:hover{
             color: var(--colorBright);
             border-color: var(--colorBright);
+            max-width: 255px;
+            padding: 0 10px;
+            
+            & .headerIcoBtnTitle{
+                display: flex;
+                margin-left: 10px;
+            }
         }
         &:active{
             color: var(--colorTextPlus);
