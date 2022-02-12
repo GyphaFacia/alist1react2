@@ -7,6 +7,16 @@ import Auth from '../../Auth/Auth'
 import {BsStar} from 'react-icons/bs'
 import * as searchReducer from '../../../Redux/searchReducer'
 
+function IcoBtn(props){
+    return(
+        <div
+        className = {style.headerIcoBtn}
+        >
+            {props.icon}
+        </div>
+    )
+}
+
 export default function Header(props){
     const {rates} = useSelector(store => store.rates)
     const dispatch = useDispatch()
@@ -37,12 +47,10 @@ export default function Header(props){
             <section
             className={`${style.headerRight} ${style.headerSection}`}
             >
-                <div
+                <IcoBtn
                 onClick = {handleRatedClick}
-                className = {style.headerIcoBtn}
-                >
-                    <BsStar/>
-                </div>
+                icon = {<BsStar/>}
+                />
                 <Auth/>
             </section>
         </header>

@@ -3,9 +3,11 @@ import React from 'react'
 import style from './style.module.scss'
 import * as search from '../../Redux/searchReducer'
 import {BsSearch} from 'react-icons/bs'
+import {useNavigate} from 'react-router-dom' 
 
 export default function Search(props){
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const { searchInputValue } = useSelector(store => store.search)
     
     function setSearchInputValue(val){
@@ -19,6 +21,7 @@ export default function Search(props){
     function handleSearchEnter(e){
         if(e.code == 'Enter' && searchInputValue){
             searchTitle()
+            navigate(`/search/${searchInputValue}`, {replace: true,})
         }
     }
     
