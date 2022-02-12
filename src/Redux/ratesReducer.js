@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {addHint} from './hintsReducer'
+import {handleAuth} from './authReducer'
 
 const defaultState = {
     rates: [],
@@ -10,9 +11,7 @@ const defaultState = {
 const API = 'https://frozen-ocean-51941.herokuapp.com/api'
 
 export const fetchRates = (token) => async (dispatch) =>{
-    token = token ? token : localStorage.getItem('token')
-    if(!token){
-        dispatch({type: 'setShowSignInModal', payload: true})
+    if(!handleAuth(dispatch, token)){
         return false
     }
     try {
@@ -28,9 +27,7 @@ export const fetchRates = (token) => async (dispatch) =>{
 }
 
 export const fetchSetRate = (title, rate, token) => async (dispatch) =>{
-    token = token ? token : localStorage.getItem('token')
-    if(!token){
-        dispatch({type: 'setShowSignInModal', payload: true})
+    if(!handleAuth(dispatch, token)){
         return false
     }
     try {

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {addHint} from './hintsReducer'
+import {handleAuth} from './authReducer'
 
 const defaultState = {
     lists: [],
@@ -13,9 +14,7 @@ const API = 'https://frozen-ocean-51941.herokuapp.com/api'
 
 // /api/rates/getalllists << token
 export const fetchGetAllLists = (token) => async (dispatch) =>{
-    token = token ? token : localStorage.getItem('token')
-    if(!token){
-        dispatch({type: 'setShowSignInModal', payload: true})
+    if(!handleAuth(dispatch, token)){
         return false
     }
     try {
@@ -32,9 +31,7 @@ export const fetchGetAllLists = (token) => async (dispatch) =>{
 
 // /api/rates/addtolist << token, list, title
 export const fetchAddToList = (list, title, token) => async (dispatch) =>{
-    token = token ? token : localStorage.getItem('token')
-    if(!token){
-        dispatch({type: 'setShowSignInModal', payload: true})
+    if(!handleAuth(dispatch, token)){
         return false
     }
     try {
@@ -52,9 +49,7 @@ export const fetchAddToList = (list, title, token) => async (dispatch) =>{
 
 // /api/rates/removefromlist << token, list, title
 export const fetchRemoveFromList = (list, title, token) => async (dispatch) =>{
-    token = token ? token : localStorage.getItem('token')
-    if(!token){
-        dispatch({type: 'setShowSignInModal', payload: true})
+    if(!handleAuth(dispatch, token)){
         return false
     }
     try {

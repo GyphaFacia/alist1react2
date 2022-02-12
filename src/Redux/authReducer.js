@@ -19,6 +19,7 @@ export const fetchRegister = (login, password) => async (dispatch) =>{
         dispatch(addHint('Пользователь создан'))
     } catch (e) {
         dispatch(addHint('Что-то пошло не так', 0, 'error'))
+        dispatch(logOut('silent'))
         console.warn(e)
     }
 }
@@ -35,15 +36,30 @@ export const fetchLogin = (login, password) => async (dispatch) =>{
         dispatch(addHint('Вы вошли в аккаунт'))
     } catch (e) {
         dispatch(addHint('Что-то пошло не так', 0, 'error'))
+        dispatch(logOut('silent'))
         console.warn(e)
     }
 }
 
-export const logOut = () => async (dispatch) =>{
+export function handleAuth(dispatch, token){
+    token = token ? token : localStorage.getItem('token')
+    if(!token){
+        dispatch(logOut('silent'))
+        dispatch({type: 'setShowSignInModal', payload: true})
+        return false
+    }
+    else{
+        return true
+    }
+}
+
+export const logOut = (silent = false) => async (dispatch) =>{
     try {
         dispatch({type: 'setToken', payload: ''})
         localStorage.setItem('token', '')
-        dispatch(addHint('Вы вышли из аккаунта'))
+        if(!silent){
+            dispatch(addHint('Вы вышли из аккаунта'))
+        }
     } catch (e) {
         console.warn(e)
     }

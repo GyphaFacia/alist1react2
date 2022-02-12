@@ -3,6 +3,7 @@ import React from 'react'
 import style from './style.module.scss'
 import ReactDom from 'react-dom'
 import * as listsReducer from '../../../Redux/listsReducer'
+import * as authReducer from '../../../Redux/authReducer'
 import {BsCheckLg} from 'react-icons/bs'
 
 function NewList({title}){
@@ -30,7 +31,7 @@ function NewList({title}){
 function List({listname, title}){
     const dispatch = useDispatch()
     const { lists } = useSelector(store => store.lists)
-    
+        
     function titleInList(){
         try {
             return !!lists.filter(
@@ -83,7 +84,14 @@ function List({listname, title}){
 }
 
 export default function ModalAddToList({title, onClose}){
+    const dispatch = useDispatch()
     const { lists } = useSelector(store => store.lists)
+    
+    React.useEffect(()=>{
+        if(!authReducer.handleAuth(dispatch)){
+            onClose()
+        }
+    }, [])
     
     const getListNames = (lists)=>{
         return lists.filter(
