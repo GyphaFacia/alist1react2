@@ -50,12 +50,6 @@ export const setRates = (payload)=>({type: 'setRates', payload})
 
 export const ratesReducer = (state = defaultState, action)=>{
   const {payload, type} = action
-  
-  console.log(type)
-  console.groupCollapsed('show')
-  console.dir(payload);
-  console.groupEnd()
-  
   switch (type) {
       // case 'setVal': return {...state, val: payload}
       case 'setRates': return {...state, rates: payload}

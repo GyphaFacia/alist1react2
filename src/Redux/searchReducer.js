@@ -48,12 +48,6 @@ export const setShowTitleModal = (payload)=>({type: 'setShowTitleModal', payload
 
 export const searchReducer = (state = defaultState, action)=>{
     const {payload, type} = action
-
-    console.log(type)
-    console.groupCollapsed('show')
-    console.dir(payload);
-    console.groupEnd()
-
     switch (type) {
       case 'setSearchItems': return {...state, searchItems: payload}
       case 'setCurrentItem': return {...state, currentItem: payload}

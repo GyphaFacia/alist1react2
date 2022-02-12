@@ -24,12 +24,6 @@ export const intRemoveHint = (payload)=>({type: 'intRemoveHint', payload})
 
 export const hintsReducer = (state = defaultState, action)=>{
   const {payload, type} = action
-  
-  console.log(type)
-  console.groupCollapsed('show')
-  console.dir(payload);
-  console.groupEnd()
-  
   switch (type) {
       case 'intAddHint': return {
           ...state,

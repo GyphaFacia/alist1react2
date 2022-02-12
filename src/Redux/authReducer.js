@@ -54,12 +54,6 @@ export const setShowSignInModal = (payload)=>({type: 'setShowSignInModal', paylo
 
 export const authReducer = (state = defaultState, action)=>{
     const {payload, type} = action
-
-    console.log(type)
-    console.groupCollapsed('show')
-    console.dir(payload);
-    console.groupEnd()
-
     switch (type) {
       case 'setShowSignInModal': return {...state, showSignInModal: payload}
       case 'setToken': return {...state, token: payload}
