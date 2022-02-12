@@ -2,6 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import TitleCard from '../TitleCard/TitleCard'
+import {motion} from 'framer-motion'
 
 export default function TitlesGrid(props){
     const { searchItems } = useSelector(store => store.search)
@@ -15,11 +16,26 @@ export default function TitlesGrid(props){
         className = {style.TitlesGrid}
         >
             {getTitles().map(
-                (title, i) => 
+                (title, i) =>
+                <motion.span
+                    initial={{
+                        y: '100vh',
+                        opacity: 0,
+                    }}
+                    animate={{
+                        y: 0,
+                        opacity: 1,
+                    }}
+                    transition={{
+                        delay: i/15,
+                        duration: 0.33,
+                    }}
+                >
                 <TitleCard
-                    key = {i}
+                    key = {i + Math.random() + title.title}
                     title = {title}
                 />
+                </motion.span>
             )}
         </section>
     )

@@ -40,6 +40,10 @@
         color: var(--colorText);
         
         &Link{
+            &, & *{
+                color: inherit;
+                border-color: inherit;
+            }
             text-decoration: none;
         }
         

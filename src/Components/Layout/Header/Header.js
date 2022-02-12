@@ -5,6 +5,8 @@ import Search from '../../Search/Search'
 import {BsStar, BsSearch, BsList, BsPerson, BsHouse} from 'react-icons/bs'
 import {searchReducer, authReducer} from '../../../Redux/reducers'
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
+import {Motions} from '../../../Theme/Theme'
 
 function IcoBtn(props){
     const Btn = (props)=>(<button {...props}/>)
@@ -34,14 +36,33 @@ export default function Header(props){
     const { token } = useSelector(store => store.auth)
     const dispatch = useDispatch()
     
+    const headerIcoBtns = [
+        {title: ()=>'Домой', link: '', icon: <BsHouse/>,},
+        {title: ()=>'Поиск', link: 'search', icon: <BsSearch/>,},
+        {title: ()=>'Оценено', link: 'rates', icon: <BsStar/>,},
+        {title: ()=>'Списки', link: 'lists', icon: <BsList/>,},
+        
+        {title: (token)=>(!token ? 'Войти' : 'Выйти'),
+        onClick: handleAuthBtnClick, icon: <BsPerson/>,},
+    ]
+    
     function handleAuthBtnClick(){
         if(!!token){ dispatch(authReducer.logOut()) }
         else{ dispatch(authReducer.setShowSignInModal(true)) }
     } 
     
     return (
-        <header
+        <motion.header
         className={style.header}
+        initial={{
+            y: '-100%',
+        }}
+        animate={{
+            y: 0,
+        }}
+        transition={{
+            duration: 0.5,
+        }}
         >
             <section
             className={`${style.headerLeft} ${style.headerSection}`}
@@ -52,37 +73,32 @@ export default function Header(props){
             <section
             className={`${style.headerRight} ${style.headerSection}`}
             >
-                <IcoBtn
-                title = {'Домой'}
-                link = {``}
-                icon = {<BsHouse/>}
-                />
-                <IcoBtn
-                title = {'Поиск'}
-                link = {`search`}
-                icon = {<BsSearch/>}
-                />
-                <IcoBtn
-                title = {'Оценено'}
-                link = {`rates`}
-                icon = {<BsStar/>}
-                />
-                <IcoBtn
-                title = {'Списки'}
-                link = {`lists`}
-                icon = {<BsList/>}
-                />
-                <IcoBtn
-                title = {!token ? 'Войти' : 'Выйти'}
-                onClick = {handleAuthBtnClick}
-                icon = {<BsPerson/>}
-                />
+                {headerIcoBtns.map((item, i)=>(
+                    <motion.div
+                    key = {i}
+                    variants = {Motions}
+                    initial='glowOut'
+                    animate='glowIn'
+                    transition={{
+                        delay: 0.5 + i/10,
+                        duration: 0.1,
+                        repeatType: 'mirror',
+                        repeat: 1,
+                        repeatDelay: 0.1,
+                    }}
+                    >
+                        <IcoBtn
+                        title = {item.title(token)}
+                        link = {item.link}
+                        onClick = {item.onClick}
+                        icon = {item.icon}
+                        />
+                    </motion.div>
+                ))}
             </section>
-        </header>
+        </motion.header>
     )
 }
-
-
 
 
 

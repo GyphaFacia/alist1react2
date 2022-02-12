@@ -5,6 +5,7 @@ import {searchReducer} from '../../../Redux/reducers'
 import TitlesGrid from '../../TitlesGrid/TitlesGrid'
 import {BsStar, BsSearch, BsList, BsPerson, BsHouse} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 const helpList = [
     {
@@ -36,29 +37,42 @@ const helpList = [
 
 export default function MainPage(){
     return (
-        <ul
+        <section
         className = {style.Help}
         >
             {helpList.map((item, i)=>(
-                <Link
-                className = {style.HelpItemLink}
-                to = {item.link}
+                <motion.div
                 key = {i}
+                initial = {{
+                    x: '-100vw',
+                }}                
+                animate = {{
+                    x: 0,
+                }}
+                transition = {{
+                    delay: i/10,
+                    duration: 0.33,
+                }}
                 >
-                <li
-                className = {style.HelpItem}
-                >
-                    
+                    <Link
+                    className = {style.HelpItemLink}
+                    to = {item.link}
+                    >
                         <div
-                        className = {style.HelpItemIcon}
-                        >{item.icon}</div>
-                        <p
-                        className = {style.HelpItemContent}
-                        >{item.content}</p>
-                </li>
-                </Link>
+                        className = {style.HelpItem}
+                        >
+                            
+                                <span
+                                className = {style.HelpItemIcon}
+                                >{item.icon}</span>
+                                <p
+                                className = {style.HelpItemContent}
+                                >{item.content}</p>
+                        </div>
+                    </Link>
+                </motion.div>
             ))}
-        </ul>
+        </section>
     )
 }
 

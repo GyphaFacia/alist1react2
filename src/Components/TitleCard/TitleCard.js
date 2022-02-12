@@ -91,7 +91,7 @@ export default function TitleCard({title}){
     }
     
     return (
-        <div
+        <article
         className = {getClassName()}
         onMouseEnter = {()=>{setHovered(true)}}
         onMouseLeave = {()=>{setHovered(false)}}
@@ -115,7 +115,7 @@ export default function TitleCard({title}){
             <TitleType title={title}/>
             
             {!hovered && <MdOutlineExpandLess/>}
-        </div>
+        </article>
     )
 }
 

@@ -1,7 +1,6 @@
 export const darkTheme = {
     themeName: 'Dark theme',
-    colorBody: '#333',
-    colorMain: '#444',
+    colorBody: '#3a3a3a',
     colorText: '#ccc',
     colorTextPlus: '#eee',
     colorBright: '#af0',
@@ -23,7 +22,27 @@ export function setTheme(newTheme){
 let defaultTheme = darkTheme
 setTheme(darkTheme)
 
-
+export const Motions = {
+    glowIn:{
+        color: 'var(--colorBright)',
+        borderColor: 'var(--colorBright)',
+        scale: 1.1,
+    },
+    glowOut:{
+        color: 'var(--colorText)',
+        borderColor: '#0000',
+        scale: 1,
+    },
+    
+    glowInText:{
+        color: 'var(--colorBright)',
+        borderColor: 'var(--colorBright)',
+    },
+    glowOutText:{
+        color: 'var(--colorText)',
+        borderColor: '#0000',
+    },
+}
 
 
 

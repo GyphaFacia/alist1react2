@@ -1,8 +1,6 @@
 .main{
     flex-grow: 1;
     overflow: hidden;
-    background-color: var(--colorMain);
-    
     &Content{
         width: 100vw;
         max-height: calc(100vh - var(--headerHeight) - var(--footerHeight));
