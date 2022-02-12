@@ -32,16 +32,22 @@ export const lightTheme = {
     shadowColorB: '#fff',
 }
 
-export function setTheme(newTheme){
+const themes = {
+    light: lightTheme,
+    dark: darkTheme,
+}
+
+export function setTheme(themeName){
+    localStorage.setItem('theme', themeName)
+    const newTheme = themes[themeName]
     const docStyle = document.documentElement.style
     for (let varName in newTheme){
         docStyle.setProperty(`--${varName}`, newTheme[varName])
     }
 }
 
-let defaultTheme = darkTheme
-defaultTheme = lightTheme
-setTheme(defaultTheme)
+let savedTheme = localStorage.getItem('theme') ?? 'dark'
+setTheme(savedTheme)
 
 export const Motions = {
     glowIn:{

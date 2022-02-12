@@ -2,11 +2,13 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import Search from '../../Search/Search'
-import {BsStar, BsSearch, BsList, BsPerson, BsHouse} from 'react-icons/bs'
+import {
+    BsStar, BsSearch, BsList, BsPerson, BsHouse, BsSun, BsMoonStars
+} from 'react-icons/bs'
 import {searchReducer, authReducer} from '../../../Redux/reducers'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
-import {Motions} from '../../../Theme/Theme'
+import {Motions, setTheme} from '../../../Theme/Theme'
 
 function IcoBtn(props){
     const Btn = (props)=>(<button {...props}/>)
@@ -35,8 +37,11 @@ function IcoBtn(props){
 export default function Header(props){
     const { token } = useSelector(store => store.auth)
     const dispatch = useDispatch()
+    const [themeIcon, setThemeIcon] = React.useState(<BsSun/>)
     
     const headerIcoBtns = [
+        {title: (token)=>'Тема', onClick: handleThemeBtnClick, icon: themeIcon},
+        
         {title: ()=>'Домой', link: '', icon: <BsHouse/>,},
         {title: ()=>'Поиск', link: 'search', icon: <BsSearch/>,},
         {title: ()=>'Оценено', link: 'rates', icon: <BsStar/>,},
@@ -46,12 +51,17 @@ export default function Header(props){
         onClick: handleAuthBtnClick, icon: <BsPerson/>,},
     ]
     
+    function handleThemeBtnClick(){
+        const oldTheme = localStorage.getItem('theme')
+        const newTheme = oldTheme == 'light' ? 'dark' : 'light'
+        setTheme(newTheme)
+        document.location.reload()
+    }
+    
     function handleAuthBtnClick(){
         if(!!token){
             dispatch(authReducer.logOut())
-            setTimeout(()=>{
-                document.location.reload()
-            }, 500)
+            document.location.reload()
         }
         else{
             dispatch(authReducer.setShowSignInModal(true))

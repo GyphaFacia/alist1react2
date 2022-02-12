@@ -9,7 +9,7 @@ export default function UnDrawPic(props){
     return (
         <motion.img
         initial={{
-            x: '-50vw',
+            x: '50vw',
             opacity: 0,
         }}
         animate={{
@@ -18,6 +18,7 @@ export default function UnDrawPic(props){
         }}
         transition={{
             duration: 0.33,
+            delay: 0.5,
         }}
         
         className = {style.UnDrawPic}
