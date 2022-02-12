@@ -89,6 +89,7 @@ const ListsPage = ()=>{
                 onClick = {()=>setActiveList(i)}
                 >{listname}</div>
             )}
+            {!listnames().length && <h1>Вы не создали ни одного списка</h1>}
         </section>
         <TitlesGrid
         titles = {getTitlesOfActiveList()}
