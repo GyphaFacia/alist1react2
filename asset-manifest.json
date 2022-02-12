@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/alist1react2/static/css/main.6a120c14.css",
+    "main.js": "/alist1react2/static/js/main.e5c601c9.js",
+    "static/js/787.5373296a.chunk.js": "/alist1react2/static/js/787.5373296a.chunk.js",
+    "static/media/undraw_donut_love_kau1.svg": "/alist1react2/static/media/undraw_donut_love_kau1.53fdcb050b8b66673c5fdce4ab0a0642.svg",
+    "static/media/undraw_not_found_-60-pq.svg": "/alist1react2/static/media/undraw_not_found_-60-pq.4e455813bb8913dc0670647f3226d981.svg",
+    "index.html": "/alist1react2/index.html",
+    "main.6a120c14.css.map": "/alist1react2/static/css/main.6a120c14.css.map",
+    "main.e5c601c9.js.map": "/alist1react2/static/js/main.e5c601c9.js.map",
+    "787.5373296a.chunk.js.map": "/alist1react2/static/js/787.5373296a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a120c14.css",
+    "static/js/main.e5c601c9.js"
+  ]
+}
