@@ -168,7 +168,7 @@ export default function ModalLogin(){
                 <span>
                     <input
                     type="text"
-                    placeholder = 'Login'
+                    placeholder = 'Логин'
                     className = {style.ModalLoginInput}
                     value = {loginInput}
                     onChange = {(e)=>{setLoginInput(e.target.value)}}
@@ -177,7 +177,7 @@ export default function ModalLogin(){
                 <span>
                     <input
                     type="text"
-                    placeholder = 'Password'
+                    placeholder = 'Пароль'
                     className = {style.ModalLoginInput}
                     value = {passwordInput}
                     onChange = {(e)=>{setPasswordInput(e.target.value)}}
@@ -190,12 +190,12 @@ export default function ModalLogin(){
                     <button
                     className = {style.ModalLoginButtonsButton}
                     onClick = {handleSignIn}
-                    >Sign In</button>
+                    >Войти</button>
                     
                     <button
                     className = {style.ModalLoginButtonsButton}
                     onClick = {handleSignUp}
-                    >Sign Up</button>
+                    >Создать аккаунт</button>
                 </div>
                 
                 <InputCheckList

@@ -26,7 +26,7 @@ export default function Auth(props){
             <button
             className = {style.AuthBtn}
             onClick = {handleAuthBtnClick}
-            >{!!!token ? 'Sign In' : 'Log Out'}</button>
+            >{!!!token ? 'Войти в аккаунт' : 'Выйти из аккаунта'}</button>
         </div>
     )
 }

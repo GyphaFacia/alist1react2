@@ -20,15 +20,12 @@ export default function Search(props){
     
     function handleSearchEnter(e){
         if(e.code == 'Enter' && searchInputValue){
-            searchTitle()
-            navigate(`/search/${searchInputValue}`, {replace: true,})
+            navigateToSearch()
         }
     }
     
-    function searchTitle(){
-        console.log(`Search for ${searchInputValue}`);
-        setSearchInputValue('')
-        dispatch(search.fetchSearchPage(searchInputValue))
+    function navigateToSearch(){
+        navigate(`/search/${searchInputValue}`, {replace: true,})
     }
     
     function handleSearchBlur(){
@@ -47,7 +44,7 @@ export default function Search(props){
             type="text"
             className = {style.SearchInput}
             spellCheck = {false}
-            placeholder="Search for title"
+            placeholder="Поиск"
             value = {searchInputValue}
             onInput = {handleSearchInput}
             onKeyUp = {handleSearchEnter}
@@ -57,7 +54,7 @@ export default function Search(props){
             
             <button
             className = {style.SearchGoButton}
-            onClick = {searchTitle}
+            onClick = {navigateToSearch}
             >
                 <BsSearch/>
             </button>

@@ -73,6 +73,7 @@ export const fetchRemoveFromList = (list, title, token) => async (dispatch) =>{
 export const setLists = (payload)=>({type: 'setLists', payload})
 
 export const listsReducer = (state = defaultState, action)=>{
+    const {payload, type} = action
     switch (type) {
       // case 'setVal': return {...state, val: payload}
       case 'setLists': return {...state, lists: payload}

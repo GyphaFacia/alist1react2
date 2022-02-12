@@ -49,12 +49,11 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        width: 100%;
         &Button{
-            // box-shadow: var(--makeOutset);
-            width: 100px;
+            width: 100%;
             border-color: var(--colorText);
             margin-bottom: 30px;
+            white-space: nowrap;
         }
     }
 }

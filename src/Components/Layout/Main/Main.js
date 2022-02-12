@@ -14,15 +14,29 @@ const MainPage = ()=>{
 const SearchPage = ()=>{
     const dispatch = useDispatch()
     const {req} = useParams()
-    
     React.useEffect(()=>{
         if(req){
-            dispatch(searchReducer.setSearchInputValue(req))
+            dispatch(searchReducer.setSearchInputValue(''))
+            dispatch(searchReducer.fetchSearchPage(req))
         }
     }, [req])
     
+    function getHeadingTitle(){
+        if(req){
+            return `Результаты поиска «{req}» :`
+        }
+        return 'Введите поисковый запрос в поле выше'
+    }
+    
     return (
-        <TitlesGrid/>
+        <>
+        <h1
+        style={{
+            width: '100%',
+        }}
+        >{getHeadingTitle()}</h1>
+        {req && <TitlesGrid/>}
+        </>
     )
 }
 
