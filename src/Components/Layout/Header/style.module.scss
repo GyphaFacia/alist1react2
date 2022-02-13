@@ -1,17 +1,15 @@
+@import "Mixins";
+
 .header{
     width: 100vw;
     height: var(--headerHeight);
     box-shadow: var(--panelShadow);
     z-index: var(--zHeader);
     padding: 10px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(space-between);
     
     &Section{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex;
     }
     
     &Left{
@@ -23,10 +21,8 @@
     }
     
     &IcoBtn{
+        @include flex;
         $res: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         font-size: 22px;
         margin-right: 25px;
         border: 2px solid #0000;
