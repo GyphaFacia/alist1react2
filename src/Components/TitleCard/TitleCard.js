@@ -3,8 +3,8 @@ import React from 'react'
 import style from './style.module.scss'
 
 import RateStars from '../RateStars/RateStars'
-import {ModalAddToList} from '../Modals/Modals'
-import {searchReducer} from '../../Redux/reducers'
+import {ModalAddToList} from 'Modals'
+import {searchReducer} from 'reducers'
 
 import {BsFillPlusCircleFill} from 'react-icons/bs'
 import {MdOutlineExpandLess} from 'react-icons/md'

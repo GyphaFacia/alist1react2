@@ -1,6 +1,52 @@
+$offset1: 5px;
+$offset2: 10px;
+$offset3: 16px;
+$offset4: 24px;
+$offset5: 32px;
+$offset6: 48px;
+$offset7: 64px;
+
+$fontsize1: 16px;
+$fontsize2: 20px;
+$fontsize3: 24px;
+$fontsize4: 32px;
+$fontsize5: 48px;
+$fontsize6: 64px;
+
+h6{ font-size: $fontsize1 };
+h5{ font-size: $fontsize2 };
+h4{ font-size: $fontsize3 };
+h3{ font-size: $fontsize4 };
+h2{ font-size: $fontsize5 };
+h1{ font-size: $fontsize6 };
+
 @mixin flex($justify: center, $align: center, $direction: row){
     display: flex;
     justify-content: $justify;
     align-items: $align;
     flex-direction: $direction;
 }
+
+@mixin square($res: $offset6){
+    width: $res;
+    height: $res;
+    @include flex;
+}
+
+@mixin circle($rad: 100vmax){
+    border-radius: $rad;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

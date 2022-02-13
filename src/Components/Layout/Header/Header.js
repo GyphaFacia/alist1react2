@@ -5,10 +5,10 @@ import Search from '../../Search/Search'
 import {
     BsStar, BsSearch, BsList, BsPerson, BsHouse, BsSun, BsMoonStars
 } from 'react-icons/bs'
-import {searchReducer, authReducer} from '../../../Redux/reducers'
+import {searchReducer, authReducer} from 'reducers'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
-import {Motions, setTheme} from '../../../Theme/Theme'
+import {Motions, setTheme} from 'Theme'
 
 function IcoBtn(props){
     const Btn = (props)=>(<button {...props}/>)

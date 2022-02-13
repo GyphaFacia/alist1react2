@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import style from './style.module.scss'
-import {Copyright, GitLink} from '../../Misc/Misc'
+import {Copyright, GitLink} from 'Misc'
 import {motion} from 'framer-motion'
 
 export default function Footer(props){

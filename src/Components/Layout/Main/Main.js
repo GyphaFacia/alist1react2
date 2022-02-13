@@ -2,7 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import {Routes, Route, useRoutes, useParams} from 'react-router-dom'
-import {PageLists, PageMain, PageRates, PageSearch} from '../../Pages/Pages'
+import {PageLists, PageMain, PageRates, PageSearch} from 'Pages'
 
 export default function Main(props){
     const routes = useRoutes([

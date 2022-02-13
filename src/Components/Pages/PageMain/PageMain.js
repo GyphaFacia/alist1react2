@@ -1,13 +1,13 @@
 import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
-import {searchReducer, authReducer} from '../../../Redux/reducers'
+import {searchReducer, authReducer} from 'reducers'
 import TitlesGrid from '../../TitlesGrid/TitlesGrid'
 import {BsStar, BsSearch, BsList, BsPerson, BsHouse} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 
-import {UnDrawPic} from '../../Misc/Misc'
+import {UnDrawPic} from 'Misc'
 import pic from '../../../Images/unDraw/undraw_donut_love_kau1.svg'
 
 const helpList = [

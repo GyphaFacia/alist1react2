@@ -3,10 +3,10 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom' 
 import style from './style.module.scss'
 
-import {searchReducer} from '../../Redux/reducers'
+import {searchReducer} from 'reducers'
 import {BsSearch} from 'react-icons/bs'
 import {motion} from 'framer-motion'
-import {Motions} from '../../Theme/Theme'
+import {Motions} from 'Theme'
 
 export default function Search(props){
     const dispatch = useDispatch()

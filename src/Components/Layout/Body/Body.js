@@ -3,9 +3,9 @@ import {useSelector, useDispatch} from 'react-redux'
 import style from './style.module.scss'
 
 import Hints from '../../Hints/Hints'
-import {Header, Footer, Main} from '../Layout.js'
-import {ModalLogin, ModalTitle} from '../../Modals/Modals'
-import {ratesReducer, listsReducer} from '../../../Redux/reducers'
+import {Header, Footer, Main} from 'Layout.js'
+import {ModalLogin, ModalTitle} from 'Modals'
+import {ratesReducer, listsReducer} from 'reducers'
 
 export default function Body(props){
     const { showSignInModal } = useSelector(store => store.auth)

@@ -1,12 +1,12 @@
 import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
-import {searchReducer} from '../../../Redux/reducers'
+import {searchReducer} from 'reducers'
 import TitlesGrid from '../../TitlesGrid/TitlesGrid'
 
 import {motion} from 'framer-motion'
-import {Motions} from '../../../Theme/Theme'
-import {UnDrawPic} from '../../Misc/Misc'
+import {Motions} from 'Theme'
+import {UnDrawPic} from 'Misc'
 
 export default function PageLists(){
     const [activeList, setActiveList] = React.useState(0)

@@ -2,7 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import ReactDom from 'react-dom'
-import * as auth from '../../../Redux/authReducer'
+import {authReducer} from 'reducers'
 import CheckList from '../../CheckList/CheckList'
 
 import {motion} from 'framer-motion'
@@ -70,7 +70,7 @@ function CloseBtn(){
     
     return (
         <button
-        onClick = {()=>{dispatch(auth.setShowSignInModal(false))}}
+        onClick = {()=>{dispatch(authReducer.setShowSignInModal(false))}}
         className = {style.CloseBtn}
         >
             &times;
@@ -86,7 +86,7 @@ export default function ModalLogin(){
     
     React.useEffect(()=>{
         if(token && !'undefined null'.split(' ').includes(token)){
-            dispatch(auth.setShowSignInModal(false))
+            dispatch(authReducer.setShowSignInModal(false))
         }
     }, [token])
     
@@ -108,13 +108,13 @@ export default function ModalLogin(){
     
     function handleSignIn(){
         if(validInputs()){
-            dispatch(auth.fetchLogin(loginInput.trim(), passwordInput.trim()))
+            dispatch(authReducer.fetchLogin(loginInput.trim(), passwordInput.trim()))
         }
     }
     
     function handleSignUp(){
         if(validInputs()){
-            dispatch(auth.fetchRegister(loginInput.trim(), passwordInput.trim()))
+            dispatch(authReducer.fetchRegister(loginInput.trim(), passwordInput.trim()))
         }
     }
     
