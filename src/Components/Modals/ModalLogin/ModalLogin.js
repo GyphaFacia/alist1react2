@@ -3,7 +3,7 @@ import React from 'react'
 import style from './style.module.scss'
 import ReactDom from 'react-dom'
 import * as auth from '../../../Redux/authReducer'
-import {BsShieldCheck, BsShieldExclamation} from 'react-icons/bs'
+import CheckList from '../../CheckList/CheckList'
 
 import {motion} from 'framer-motion'
 
@@ -63,48 +63,6 @@ const checkPassword = (val)=>{
         (val) => val && ([...val].filter(c => upperCaseAlphabet.includes(c)).length || [...val].filter(c => lowerCaseAlphabet.includes(c)).length)
         ]
     ])
-}
-
-function InputCheckList({value, checks}){
-    function mapChecksToDom(){
-        const dom = []
-        checks(value).forEach((test, i) => {
-            dom.push(
-                <div
-                className = {style.InputCheckListTest}
-                key = {i}
-                >
-                    <span
-                    className = {style.InputCheckListTestText}
-                    >
-                        {test[0]}
-                    </span>
-                    <span
-                    className = {style.InputCheckListTestResult}
-                    >
-                        {test[1](value) ?
-                        <BsShieldCheck
-                        style={{fill: 'var(--colorBright)'}}
-                        />
-                        :
-                        <BsShieldExclamation
-                        style={{fill: 'var(--colorText)'}}
-                        />
-                        }
-                    </span>
-                </div>
-            )
-        })
-        return dom
-    }
-    
-    return (
-        <section
-        className = {style.InputCheckList}
-        >
-            {mapChecksToDom()}
-        </section>
-    )
 }
 
 function CloseBtn(){
@@ -208,11 +166,11 @@ export default function ModalLogin(){
                     >Создать аккаунт</button>
                 </div>
                 
-                <InputCheckList
+                <CheckList
                 value = {loginInput}
                 checks = {checkLogin}
                 />
-                <InputCheckList
+                <CheckList
                 value = {passwordInput}
                 checks = {checkPassword}
                 />
