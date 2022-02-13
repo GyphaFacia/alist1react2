@@ -1,7 +1,9 @@
+@import "Mixins";
+
 .GitLink{
-    font-size: 24px;
+    font-size: $fontsize3;
     cursor: pointer;
-    transition-duration: var(--defaultTransitionTime);
+    @include defaultTransition;
     color: var(--colorTextPlus);
     
     &:hover{

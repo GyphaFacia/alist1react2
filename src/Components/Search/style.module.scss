@@ -1,19 +1,19 @@
+@import "Mixins";
+
 .Search{
     $SearchHeight: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     flex-wrap: nowrap;
     
     &Input{
         transition-duration: var(--defaultTransitionTime);
         box-shadow: var(--makeInset);
         height: $SearchHeight;
-        margin-right: 20px;
+        margin-right: $offset4r;
         border-radius: 100vmax;
         text-align: center;
         color: var(--colorText);
-        font-size: 16px;
+        font-size: $fontsize1;
         font-weight: 600;
         border: 2px solid transparent;
     }
@@ -29,14 +29,10 @@
     }
     
     &GoButton{
-        transition-duration: var(--defaultTransitionTime);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: $SearchHeight;
-        height: $SearchHeight;
-        border-radius: 50%;
-        font-size: 20px;
+        @include defaultTransition;
+        @include rect($offset5r);
+        @include circle;
+        font-size: $fontsize2;
         box-shadow: var(--makeOutset);
         color: var(--colorText);
         border: 2px solid transparent;

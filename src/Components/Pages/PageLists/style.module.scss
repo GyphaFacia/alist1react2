@@ -1,28 +1,25 @@
+@import "Mixins";
+
 .PageLists{
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    flex-direction: column;
+    @include flex(flex-start, stretch, column);
     position: relative;
     width: 100%;
     height: var(--mainHeight);
     
     &ListNames{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        @include flex(flex-start);
         flex-wrap: wrap;    
-        font-size: 24px;
+        font-size: $fontsize3;
     }
     
     &ListName{
-        padding: 10px;
+        @include defaultTransition;
+        padding: $offset1;
         border: 2px solid #0000;
         color: var(--colorText);
         border-radius: 10px;
-        margin: 5px;
+        margin: $offset1;
         cursor: pointer;
-        transition-duration: var(--defaultTransitionTime);
         box-shadow: var(--makeInset);
         
         &:hover{

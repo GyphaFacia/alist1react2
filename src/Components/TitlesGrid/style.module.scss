@@ -1,6 +1,6 @@
+@import "Mixins";
+
 .TitlesGrid{
-    display: flex;
-    justify-content: center;
-    align-items: stretch; 
+    @include flex(center, stretch);
     flex-wrap: wrap;
 }

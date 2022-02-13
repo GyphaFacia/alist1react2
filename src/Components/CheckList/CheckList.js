@@ -10,11 +10,11 @@ export default function CheckList({value, checks}){
                 className = {style.CheckListTest}
                 key = {i}
                 >
-                    <span
+                    <h6
                     className = {style.CheckListTestText}
                     >
                         {test[0]}
-                    </span>
+                    </h6>
                     <span
                     className = {style.CheckListTestResult}
                     >

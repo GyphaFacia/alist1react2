@@ -1,12 +1,10 @@
+@import "Mixins";
+
 .Hints{
     position: fixed;
     top: var(--headerHeight);
     right: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-direction: column;
-    padding-right: 0;
+    @include flex(flex-start, flex-end, column);
     z-index: var(--zHints);
 }
 
@@ -14,13 +12,11 @@
     $gray1: #8883;
     $gray2: #8883;
     background-image: 
-    linear-gradient(to right, $gray1, $gray2),
-    linear-gradient(var(--colorBright), var(--colorBright))
+        linear-gradient(to right, $gray1, $gray2),
+        linear-gradient(var(--colorBright), var(--colorBright))
     ;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: $offset3;
+    @include flex;
     max-width: 33vw;
     pointer-events: none;
     
@@ -46,21 +42,19 @@
     
     &Msg{
         word-wrap: break-word;
-        font-size: 20px;
-        padding: 10px;
+        font-size: $fontsize2;
+        padding: $offset2;
         color: #fff;
     }
     
     &CloseBtn{
         pointer-events: all;
-        $res: 40px;
-        width: $res;
-        height: $res;
-        font-size: 33px;
+        @include rect($offset5);
+        @include circle;
+        @include defaultTransition;
+        font-size: $fontsize4;
         color: #fff;
-        border-radius: 50%;
         background-color: #0005;        
-        transition-duration: var(--defaultTransitionTime);
         
         &:hover{
             transform: rotate(180deg) scale(1.25);
@@ -68,13 +62,11 @@
         }
         
         &Wrapper{
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex;
             align-self: stretch;
             background-color: #fff5;
-            padding: 10px;
-            padding-right: 5px;
+            padding: $offset2;
+            padding-right: $offset1;
             border-radius: 50% 0 0 50%;
         }
     }

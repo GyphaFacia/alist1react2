@@ -1,47 +1,39 @@
+@import "Mixins";
+
 .ModalTitle{
+    @include flex(flex-start, center, column);
     background-color: var(--colorBody);
-    padding: 30px;
+    padding: $offset5;
     border-radius: 15px;
     box-shadow: 0 0 10px 0 #fff, 0 0 0 100vmax #000a;
     z-index: var(--zModal);
-    font-size: 24px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+    font-size: $fontsize3;
     position: relative;
     width: 100%;
     height: 100%;
 
     &Wrapper{
-        z-index: var(--zModal);
+        @include center;
         position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        z-index: var(--zModal);
         max-height: 90vh;
     }
 }
 
 .CloseBtn{
+    @include rect($offset5r);
+    @include circle;
+    @include defaultTransition;
     background-color: var(--colorBody);
     position: absolute;
     right: 0;
     top: 0;
     transform: translate(50%, -50%);
-    $res: 40px;
-    font-size: 32px;
+    font-size: $fontsize3;
     color: var(--colorText);
-    width: $res;
-    height: $res;
-    border-radius: 50%;
     border: 3px solid var(--colorText);
-    transition-duration: var(--defaultTransitionTime);
     
     &:hover{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         transform: translate(50%, -50%) rotate(180deg) scale(1.25);
         color: var(--colorBright);
         border-color: var(--colorBright);
@@ -49,29 +41,26 @@
 }
 
 .Title{
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    
+    @include flex(center, stretch);
     &Left{
         width: 50%;
         height: 100%;
         overflow-x: hidden;
         overflow-y: auto;
         max-height: 80vh;
-        padding-right: 20px;
+        padding-right: $offset4;
     }
     
     &Right{
-        margin-left: 30px;
+        margin-left: $offset5;
         width: 50%;
         height: 100%;
     }
     
     &Name{
-        font-size: 32px;
+        font-size: $fontsize4;
         font-weight: 600;
-        margin-bottom: 10px;
+        margin-bottom: $offset2;
         max-width: 100%;
     }
     
@@ -82,41 +71,36 @@
     
     &Info{
         width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        @include flex(flex-start);
         &Label{
             font-style: italic;
         }
-        
         &Content{
-            margin-left: 20px;
+            margin-left: $offset4;
         }
     }
     
     &Tag{
-        margin-right: 10px;
+        margin-right: $offset2;
         &s{
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+            @include flex(flex-start);
             flex-wrap: wrap;
         }
     }
     
     &Rates{
         &Yours{
-            margin-top: 30px;
+            margin-top: $offset5;
         }
         
         &Label{
-            font-size: 16px;
-            margin-bottom: 10px;
+            font-size: $fontsize2;
+            margin-bottom: $offset2;
         }
     }
     
     &Descr{
-        margin-top: 20px;
+        margin-top: $offset3;
         &Label{
             
         }
@@ -124,7 +108,7 @@
         &Content{
             $max: 550px;
             font-style: italic;
-            padding: 10px;
+            padding: $offset2;
             &Wrapper{
                 overflow: hidden;
                 max-height: $max;

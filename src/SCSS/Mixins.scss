@@ -1,16 +1,27 @@
 $offset1: 5px;
+    $offset1r: 7px;
 $offset2: 10px;
+    $offset2r: 14px;
 $offset3: 16px;
+    $offset3r: 20px;
 $offset4: 24px;
+    $offset4r: 28px;
 $offset5: 32px;
+    $offset5r: 40px;
 $offset6: 48px;
+    $offset6r: 56px;
 $offset7: 64px;
 
 $fontsize1: 16px;
+    $fontsize1r: 18px;
 $fontsize2: 20px;
+    $fontsize2r: 22px;
 $fontsize3: 24px;
+    $fontsize3r: 28px;
 $fontsize4: 32px;
+    $fontsize4r: 40px;
 $fontsize5: 48px;
+    $fontsize5r: 56px;
 $fontsize6: 64px;
 
 h6{ font-size: $fontsize1 };
@@ -20,6 +31,11 @@ h3{ font-size: $fontsize4 };
 h2{ font-size: $fontsize5 };
 h1{ font-size: $fontsize6 };
 
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    font-weight: normal;
+}
+
 @mixin flex($justify: center, $align: center, $direction: row){
     display: flex;
     justify-content: $justify;
@@ -27,7 +43,7 @@ h1{ font-size: $fontsize6 };
     flex-direction: $direction;
 }
 
-@mixin square($res: $offset6){
+@mixin rect($res: $offset6){
     width: $res;
     height: $res;
     @include flex;
@@ -37,10 +53,15 @@ h1{ font-size: $fontsize6 };
     border-radius: $rad;
 }
 
+@mixin center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 
-
-
-
+@mixin defaultTransition(){
+    transition-duration: var(--defaultTransitionTime);
+}
 
 
 

@@ -1,4 +1,7 @@
+@import "Mixins";
+
 .TitleCard{
+    @include flex(space-between, center, column);
     $cardColorA: #fff1;
     $cardColorB: #0000;
     $cardColorInset: #fff2;
@@ -7,24 +10,17 @@
     height: 575px;
     background-color: #fff1;
     // overflow: hidden;
-    margin: 10px;
-    padding: 10px 10px 20px 10px;
+    margin: $offset2;
+    padding: $offset2 $offset2 $offset3 $offset2;
     border-radius: 15px;
     
-    font-size: 20px;
+    font-size: $fontsize2;
     
     background: radial-gradient(circle at center bottom, $cardColorA, $cardColorB);
     box-shadow: 0 0 20px 0 var(--shadowColorPanel), 0 0 10px 0 $cardColorInset inset;
     
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    
     &Matched{
-        // filter: brightness(1.25);
         box-shadow: 0 0 10px 0 var(--colorBright), 0 0 10px 0 $cardColorInset inset;
-        // border: 1px solid var(--colorBright);
     }
     
     &, & > *{
@@ -45,11 +41,9 @@
     }
     
     &Extra{
+        @include flex(space-between);
         width: 0;
         height: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         display: none;
     }
     
@@ -57,9 +51,9 @@
         transition-duration: var(--defaultTransitionTime);
         border: 2px solid var(--colorText);
         border-radius: 100vw;
-        padding: 5px;
-        padding-left: 10px;
-        font-size: 20px;
+        padding: $offset1;
+        padding-left: $offset2;
+        font-size: $fontsize2;
         color: var(--colorTextPlus);
         
         &, & .TitleCardExtraRight{
@@ -67,15 +61,9 @@
         }
         
         & .TitleCardExtraRight{
-            transition-duration: var(--defaultTransitionTime);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            $res: 30px;
-            width: $res;
-            height: $res;
-            font-size: 24px;
-            border-radius: 50%;
+            @include defaultTransition;
+            @include rect($offset4r);
+            @include circle;
         }
         
         &:hover{
@@ -90,14 +78,14 @@
     }
     
     &:hover{
-        padding: 20px;
+        padding: $offset2r;
         & .TitleCardThumb{
+            border-radius: 50%;
             width: 240px;
             height: 240px;
-            border-radius: 50%;
             
             box-shadow: var(--makeThumbInset);
-            margin-bottom: 10px;
+            margin-bottom: $offset6;
         }
         
         & .TitleCardExtra{

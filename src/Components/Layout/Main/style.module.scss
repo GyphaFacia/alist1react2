@@ -1,15 +1,14 @@
+@import "Mixins";
+
 .main{
     flex-grow: 1;
     overflow: hidden;
     &Content{
         width: 100vw;
         max-height: var(--mainHeight);
-        padding: 10px;
+        padding: $offset2;
         
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
+        @include flex(flex-start, center, column);
         overflow: auto;
     }
 }

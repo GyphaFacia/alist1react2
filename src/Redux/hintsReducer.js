@@ -15,7 +15,7 @@ export const addHint = (msg, lifetime = hintDefaultLife, type = hintDefaultType)
     }
     dispatch({type: 'intAddHint', payload: hint})
     setTimeout(()=>{
-        // dispatch({type: 'intRemoveHint', payload: hint.id})
+        dispatch({type: 'intRemoveHint', payload: hint.id})
     }, hint.lifetime)
 }
 
