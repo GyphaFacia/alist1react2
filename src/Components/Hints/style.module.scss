@@ -11,7 +11,12 @@
 }
 
 .Hint{
-    background-color: var(--colorText);
+    $gray1: #8883;
+    $gray2: #8883;
+    background-image: 
+    linear-gradient(to right, $gray1, $gray2),
+    linear-gradient(var(--colorBright), var(--colorBright))
+    ;
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
@@ -24,7 +29,8 @@
     clip-path: inset(0 0 0 100%);
     
     &Error{
-        background-color: crimson;
+        background-image: none;
+        background-color: red;
     }
     
     &Expanding{
@@ -42,7 +48,7 @@
         word-wrap: break-word;
         font-size: 20px;
         padding: 10px;
-        color: var(--colorBody);
+        color: #fff;
     }
     
     &CloseBtn{
@@ -51,11 +57,9 @@
         width: $res;
         height: $res;
         font-size: 33px;
-        color: #fffa;
+        color: #fff;
         border-radius: 50%;
-        background-color: #0005;
-        text-shadow: 1px 1px 1px var(--shadowColorA), -1px -1px 1px var(--shadowColorB);
-        
+        background-color: #0005;        
         transition-duration: var(--defaultTransitionTime);
         
         &:hover{
