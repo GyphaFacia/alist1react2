@@ -30,7 +30,7 @@ export default function SearchPage(){
         <main
         className = {style.PageSearch}
         >
-            <motion.h1
+            <motion.h3
             style={{width: '100%'}}
             variants = {Motions}
             initial='glowOutText'
@@ -42,7 +42,7 @@ export default function SearchPage(){
                 repeat: 1,
                 repeatDelay: 0.1,
             }}
-            >{getHeadingTitle()}</motion.h1>
+            >{getHeadingTitle()}</motion.h3>
             
             {req && <TitlesGrid/>}
             

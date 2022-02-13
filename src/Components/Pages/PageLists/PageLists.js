@@ -46,7 +46,7 @@ export default function PageLists(){
             
             {!listnames().length &&
                 <>
-                <motion.h1
+                <motion.h3
                 variants = {Motions}
                 initial='glowOutText'
                 animate='glowInText'
@@ -57,7 +57,7 @@ export default function PageLists(){
                     repeat: 1,
                     repeatDelay: 0.1,
                 }}
-                >Вы не создали ни одного списка</motion.h1>
+                >Вы не создали ни одного списка</motion.h3>
                 <UnDrawPic/>
                 </>
             }

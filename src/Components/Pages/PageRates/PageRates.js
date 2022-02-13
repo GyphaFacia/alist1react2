@@ -22,7 +22,7 @@ export default function RatesPage(){
         <main
         className = {style.RatesPage}
         >
-            <motion.h1
+            <motion.h3
             style={{width: '100%'}}
             variants = {Motions}
             initial='glowOutText'
@@ -34,7 +34,7 @@ export default function RatesPage(){
                 repeat: 1,
                 repeatDelay: 0.1,
             }}
-            >Ваши оцененные тайтлы:</motion.h1>
+            >Ваши оцененные тайтлы:</motion.h3>
             <TitlesGrid
             titles = {ratesToSearchItems()}
             />
