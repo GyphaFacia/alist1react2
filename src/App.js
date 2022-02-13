@@ -4,17 +4,18 @@ import {useDispatch, useSelector, Provider} from 'react-redux'
 import store from './Redux/Store'
 import * as theme from './Theme/Theme'
 import {Body} from './Components/Layout/Layout'
-import {BrowserRouter} from 'react-router-dom'
+// import {BrowserRouter} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom' // for gh-pages
 
 export default function App() {
     return (
         <Provider store = {store}>
-            <BrowserRouter>
+            <HashRouter basename={process.env.PUBLIC_URL}>
                 <div className="App"
                 >
                     <Body/>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         </Provider>
     )
 }
