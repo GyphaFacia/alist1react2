@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/alist1react2/static/css/main.8c46c458.css",
-    "main.js": "/alist1react2/static/js/main.f874b42b.js",
+    "main.css": "/alist1react2/static/css/main.a9b8ec3e.css",
+    "main.js": "/alist1react2/static/js/main.66ad2167.js",
     "static/js/787.5373296a.chunk.js": "/alist1react2/static/js/787.5373296a.chunk.js",
     "static/media/undraw_donut_love_kau1.svg": "/alist1react2/static/media/undraw_donut_love_kau1.53fdcb050b8b66673c5fdce4ab0a0642.svg",
     "static/media/undraw_not_found_-60-pq.svg": "/alist1react2/static/media/undraw_not_found_-60-pq.4e455813bb8913dc0670647f3226d981.svg",
     "index.html": "/alist1react2/index.html",
-    "main.8c46c458.css.map": "/alist1react2/static/css/main.8c46c458.css.map",
-    "main.f874b42b.js.map": "/alist1react2/static/js/main.f874b42b.js.map",
+    "main.a9b8ec3e.css.map": "/alist1react2/static/css/main.a9b8ec3e.css.map",
+    "main.66ad2167.js.map": "/alist1react2/static/js/main.66ad2167.js.map",
     "787.5373296a.chunk.js.map": "/alist1react2/static/js/787.5373296a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8c46c458.css",
-    "static/js/main.f874b42b.js"
+    "static/css/main.a9b8ec3e.css",
+    "static/js/main.66ad2167.js"
   ]
 }
