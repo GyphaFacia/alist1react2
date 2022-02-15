@@ -22,6 +22,9 @@
     margin-bottom: $offset3;
     @include flex;
     max-width: 33vw;
+    @media (max-width: $smaller){
+        max-width: 90vw;
+    }
     pointer-events: none;
     
     transition-duration: 500ms;

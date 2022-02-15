@@ -2,7 +2,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import style from './style.module.scss'
 import ReactDom from 'react-dom'
-import {authReducer} from 'reducers'
+import {authReducer, hintsReducer} from 'reducers'
 import CheckList from '../../CheckList/CheckList'
 
 import {motion} from 'framer-motion'
@@ -90,7 +90,7 @@ export default function ModalLogin(){
         }
     }, [token])
     
-    function validInputs(testing = true){
+    function validInputs(testing = false){
         if(testing){ return true }
         
         for(let test of checkLogin(loginInput)){
@@ -106,15 +106,37 @@ export default function ModalLogin(){
         return true
     }
     
+    function hintValidation(){
+        [
+            ...checkLogin(loginInput).filter(
+                test => !test[1](loginInput)
+            ).map(
+                test => test[0]
+            ),
+            ...checkPassword(passwordInput).filter(
+                test => !test[1](passwordInput)
+            ).map(
+                test => test[0]
+            ),
+        ].forEach((error, i) => {
+            dispatch(hintsReducer.addHint(error, 0, 'error'))
+        })
+        
+    }
+    
     function handleSignIn(){
         if(validInputs()){
             dispatch(authReducer.fetchLogin(loginInput.trim(), passwordInput.trim()))
+        }else{
+            hintValidation()
         }
     }
     
     function handleSignUp(){
         if(validInputs()){
             dispatch(authReducer.fetchRegister(loginInput.trim(), passwordInput.trim()))
+        }else{
+            hintValidation()
         }
     }
     
