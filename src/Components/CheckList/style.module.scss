@@ -21,4 +21,8 @@
             font-size: $fontsize3;
         }
     }
+    
+    @media (max-width: $smaller){
+        display: none;
+    }
 }
