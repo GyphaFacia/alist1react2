@@ -5,6 +5,11 @@
     @include flex;
     flex-wrap: nowrap;
     
+    @media (max-width: $smaller){
+        @include flex(space-around);
+        width: 100%;
+    }
+    
     &Input{
         transition-duration: var(--defaultTransitionTime);
         box-shadow: var(--makeInset);

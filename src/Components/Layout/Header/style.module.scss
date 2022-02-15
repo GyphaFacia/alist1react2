@@ -8,10 +8,6 @@
     padding: $offset2 $offset3;
     @include flex(space-between);
     
-    &Section{
-        @include flex;
-    }
-    
     &Left{
         justify-content: flex-start;
         padding-left: $offset4;
@@ -19,6 +15,15 @@
     
     &Right{
         justify-content: flex-end;
+    }
+    
+    &Section{
+        @include flex;
+        
+        @media (max-width: $smaller){
+            width: 100%;
+            padding: 0;
+        }
     }
     
     &IcoBtn{
@@ -37,7 +42,7 @@
         color: var(--colorText);
         
         @media (max-width:$smaller){
-            margin-right: $offset2r;
+            margin: 0 $offset1r;
         }
         
         &Link{
