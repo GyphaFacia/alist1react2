@@ -7,6 +7,12 @@
     @include flex;
     flex-wrap: nowrap;
     
+    @media (max-width: $smaller){
+        $StarRes: 25px;
+        width: 100%;
+        min-height: $StarRes;
+    }
+    
     &, & *{
         @include defaultTransition;
     }
@@ -27,6 +33,10 @@
         pointer-events: none;
         position: absolute;
         right: -$offset3;
+        
+        @media (max-width: $smaller){
+            display: none;
+        }
     }
     
     & > *{

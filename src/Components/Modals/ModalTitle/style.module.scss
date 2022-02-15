@@ -18,6 +18,10 @@
         z-index: var(--zModal);
         max-height: 90vh;
     }
+    
+    @media (max-width: $smaller){
+        padding: $offset1;
+    }
 }
 
 .CloseBtn{
@@ -67,6 +71,9 @@
     &Thumb{
         width: 100%;
         border-radius: 10px;
+        @media (max-width: $smaller){
+            display: none;
+        }
     }
     
     &Info{
@@ -116,6 +123,39 @@
             overflow: auto;
             max-height: $max;
         }
+        
+        @media (max-width: $smaller){
+            display: none;
+        }
+    }
+    
+    @media (max-width: $smaller){
+        @include flex(space-between, center, column);
+        
+        &Left, &Right{
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            max-height: 40vh;
+        }
+        
+        &Left{
+            height: auto;
+            margin-bottom: $offset3;
+        }
+        
+        width: 85vw;
+        padding: $offset1;
+        // overflow: auto;
+        // &Left{
+        //     padding-right: $offset4;
+        // }
+        // 
+        // &Right{
+        //     margin-left: $offset5;
+        //     width: 50%;
+        //     height: 100%;
+        // }
     }
 }
 

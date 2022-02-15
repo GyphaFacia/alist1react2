@@ -26,7 +26,8 @@
             text-decoration: none;
         }
         
-        padding: 0 $offset4 0 $offset2;
+        $padding1: 10px;
+        padding: $padding1 $offset4 $padding1 $padding1;
         margin: $offset2;
         
         border-radius: 100vmax;

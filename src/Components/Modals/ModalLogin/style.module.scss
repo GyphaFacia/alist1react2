@@ -50,6 +50,12 @@
             white-space: nowrap;
         }
     }
+    
+    @media (max-width: $smaller){
+        padding: $offset2;
+        border-radius: 5px;
+        box-shadow: 0 0 3px 0 var(--colorBright), 0 0 0 100vmax #000a;
+    }
 }
 
 .CloseBtn{

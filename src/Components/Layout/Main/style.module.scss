@@ -10,6 +10,10 @@
         
         @include flex(flex-start, center, column);
         overflow: auto;
+        
+        @media (max-width: $smaller){
+            height: calc(100vh - var(--headerHeight) * 1.66);
+        }
     }
 }
 

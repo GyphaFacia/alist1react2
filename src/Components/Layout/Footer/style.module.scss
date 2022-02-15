@@ -6,4 +6,8 @@
     z-index: var(--zFooter);
     padding: 0 $offset2;
     @include flex;
+    
+    @media (max-width:$smaller){
+        display: none;
+    }
 }

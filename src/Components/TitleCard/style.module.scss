@@ -94,6 +94,24 @@
             display: flex;
         }
     }
+    
+    @media(max-width: $smaller){
+        padding: $offset2r;
+        & .TitleCardThumb{
+            border-radius: 50%;
+            width: 240px;
+            height: 240px;
+            
+            box-shadow: var(--makeThumbInset);
+            margin-bottom: $offset6;
+        }
+        
+        & .TitleCardExtra{
+            width: 90%;
+            height: auto;
+            display: flex;
+        }
+    }
 }
 
 

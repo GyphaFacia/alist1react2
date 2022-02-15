@@ -73,7 +73,10 @@ export default function TitleCard({title}){
     const { searchInputValue, searchInputFocus } = useSelector(store => store.search)
     
     function cropTitle(maxlen = 25){
-        if(title.title.length > maxlen){
+        const maxWidth = 770
+        const mobile = window.matchMedia(`(max-width: ${maxWidth}px)`).matches
+        
+        if(title.title.length > maxlen && !mobile){
             return hovered ? title.title : `${title.title.slice(0, maxlen)}...`
         }
         return title.title

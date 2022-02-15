@@ -33,7 +33,6 @@ export const fetchItemPage = (titleId) => async (dispatch) =>{
         const {data} = await axios.get(link)
         dispatch({type: 'setCurrentItem', payload: data.message})
         dispatch({type: 'setShowTitleModal', payload: true})
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     } catch (e) {
         console.warn(e)
         dispatch(addHint('Сбой загрузки доп. инфо', 0, 'error'))

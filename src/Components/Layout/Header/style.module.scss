@@ -36,6 +36,10 @@
         cursor: pointer;
         color: var(--colorText);
         
+        @media (max-width:$smaller){
+            margin-right: $offset2r;
+        }
+        
         &Link{
             &, & *{
                 color: inherit;
@@ -64,6 +68,12 @@
             color: var(--colorTextPlus);
             border-color: var(--colorTextPlus);
         }
+    }
+    
+    @media (max-width:$smaller){
+        @include flex(space-between, center, column);
+        height: calc(var(--headerHeight) * 1.66);
+        padding: $offset2;
     }
 }
 

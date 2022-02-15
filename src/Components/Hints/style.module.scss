@@ -6,6 +6,10 @@
     right: 0;
     @include flex(flex-start, flex-end, column);
     z-index: var(--zHints);
+    
+    @media (max-width: $smaller){
+        top: calc(var(--headerHeight)*1.66);
+    }
 }
 
 .Hint{

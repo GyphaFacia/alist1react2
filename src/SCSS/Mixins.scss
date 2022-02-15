@@ -1,28 +1,35 @@
-$offset1: 5px;
-    $offset1r: 7px;
-$offset2: 10px;
-    $offset2r: 14px;
-$offset3: 16px;
-    $offset3r: 20px;
-$offset4: 24px;
-    $offset4r: 28px;
-$offset5: 32px;
-    $offset5r: 40px;
-$offset6: 48px;
-    $offset6r: 56px;
-$offset7: 64px;
+// $offset1: 5px;     $offset1r: 7px;
+// $offset2: 10px;    $offset2r: 14px;
+// $offset3: 16px;    $offset3r: 20px;
+// $offset4: 24px;    $offset4r: 28px;
+// $offset5: 32px;    $offset5r: 40px;
+// $offset6: 48px;    $offset6r: 56px;
+// $offset7: 64px;    $offset6r: 72px;
+//
+// $fontsize1: 16px;  $fontsize1r: 18px;
+// $fontsize2: 20px;  $fontsize2r: 22px;
+// $fontsize3: 24px;  $fontsize3r: 28px;
+// $fontsize4: 32px;  $fontsize4r: 40px;
+// $fontsize5: 48px;  $fontsize5r: 56px;
+// $fontsize6: 64px;  $fontsize6r: 72px;
 
-$fontsize1: 16px;
-    $fontsize1r: 18px;
-$fontsize2: 20px;
-    $fontsize2r: 22px;
-$fontsize3: 24px;
-    $fontsize3r: 28px;
-$fontsize4: 32px;
-    $fontsize4r: 40px;
-$fontsize5: 48px;
-    $fontsize5r: 56px;
-$fontsize6: 64px;
+$offset1: 10px;    $offset1r: 10px;
+$offset2: 10px;    $offset2r: 14px;
+$offset3: 16px;    $offset3r: 20px;
+$offset4: 24px;    $offset4r: 28px;
+$offset5: 32px;    $offset5r: 40px;
+$offset6: 48px;    $offset6r: 56px;
+$offset7: 64px;    $offset6r: 72px;
+
+$fontsize1: 14px;  $fontsize1r: 14px;
+$fontsize2: 14px;  $fontsize2r: 14px;
+$fontsize3: 16px;  $fontsize3r: 18px;
+$fontsize4: 20px;  $fontsize4r: 22px;
+$fontsize5: 24px;  $fontsize5r: 28px;
+$fontsize6: 32px;  $fontsize6r: 40px;
+
+// $smaller: 430px;
+$smaller: 770px;
 
 h6{ font-size: $fontsize1 };
 h5{ font-size: $fontsize2 };
@@ -30,6 +37,7 @@ h4{ font-size: $fontsize3 };
 h3{ font-size: $fontsize4 };
 h2{ font-size: $fontsize5 };
 h1{ font-size: $fontsize6 };
+
 
 h1, h2, h3, h4, h5, h6{
     margin: 0;
