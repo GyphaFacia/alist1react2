@@ -3,17 +3,10 @@ import React from 'react'
 import style from './style.module.scss'
 import {hintsReducer} from 'reducers'
 
+import {motion, AnimatePresence} from 'framer-motion'
+
 function Hint({hint}){
     const dispatch = useDispatch()
-    const [isFading, setIsFading] = React.useState(false)
-    const [isShrinking, setIsShrinking] = React.useState(false)
-    const [isExpanding, setIsExpanding] = React.useState(false)
-    
-    React.useEffect(()=>{
-        setTimeout(()=>{ setIsExpanding(true) }, 0)
-        setTimeout(()=>{ setIsFading(true) }, hint.lifetime - 1000)
-        setTimeout(()=>{ setIsShrinking(true) }, hint.lifetime - 500)
-    }, [])
     
     function handleHintCloseBtnClick(){
         dispatch(hintsReducer.intRemoveHint(hint.id))
@@ -22,16 +15,11 @@ function Hint({hint}){
     function getClassName(){
         const classList = []
         classList.push(style.Hint)
-        if(isExpanding){classList.push(style.HintExpanding)}
-        if(isFading){classList.push(style.HintFading)}
-        if(isShrinking){classList.push(style.HintShrinking)}
-        
         switch (hint.type) {
             case 'error':
                 classList.push(style.HintError)
                 break;
         }
-        
         return classList.join(' ')
     }
     
@@ -62,12 +50,22 @@ export default function Hints(props){
         <div
         className = {style.Hints}
         >
-            {hints.map((hint, i)=>(
-                <Hint
-                key = {hint.id}
-                hint = {hint}
-                />
-            ))}
+            <AnimatePresence>
+                {hints.map((hint, i)=>(
+                    <motion.div
+                    key={hint.id}
+                    exit = {{ clipPath: 'inset(0 0 0 100%)', }}
+                    initial = {{ clipPath: 'inset(0 0 0 100%)', }}
+                    animate = {{ clipPath: 'inset(0 0 0 0%)', }}
+                    transition = {{ duration: 0.255, }}
+                    >
+                        <Hint
+                        key = {hint.id}
+                        hint = {hint}
+                        />
+                    </motion.div>
+                ))}
+            </AnimatePresence>
         </div>
     )
 }

@@ -29,23 +29,26 @@
     
     transition-duration: 500ms;
     opacity: 1;
-    clip-path: inset(0 0 0 100%);
+    // clip-path: inset(0 0 0 100%);
+    
+    border-radius: 100vmax 0 0 100vmax;
+    padding-left: 10px;
     
     &Error{
         background-image: none;
         background-color: red;
     }
     
-    &Expanding{
-        clip-path: inset(0 0 0 0);
-    }
-    &Fading{
-        clip-path: inset(0 0 0 100%);
-    }
-    &Shrinking{
-        height: 0;
-        margin: 0;
-    }
+    // &Expanding{
+    //     clip-path: inset(0 0 0 0);
+    // }
+    // &Fading{
+    //     clip-path: inset(0 0 0 100%);
+    // }
+    // &Shrinking{
+    //     height: 0;
+    //     margin: 0;
+    // }
     
     &Msg{
         word-wrap: break-word;
@@ -58,7 +61,7 @@
         pointer-events: all;
         @include rect($offset5);
         @include circle;
-        @include defaultTransition;
+        // @include defaultTransition;
         font-size: $fontsize4;
         color: #fff;
         background-color: #0005;        
