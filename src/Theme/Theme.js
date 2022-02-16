@@ -69,6 +69,19 @@ export const Motions = {
         color: 'var(--colorText)',
         borderColor: '#0000',
     },
+    
+    routeExit: {
+        x: '-100vw',
+        opacity: 0,
+    },
+    routeInitial: {
+        x: '100vw',
+        opacity: 0,
+    },
+    routeAnimate: {
+        x: 0,
+        opacity: 1,
+    },
 }
 
 

@@ -9,7 +9,8 @@
         padding: $offset2;
         
         @include flex(flex-start, center, column);
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         
         @media (max-width: $smaller){
             height: calc(100vh - var(--headerHeight) * 1.66);

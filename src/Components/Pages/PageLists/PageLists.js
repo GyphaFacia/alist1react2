@@ -31,8 +31,12 @@ export default function PageLists(){
     }
     
     return (
-        <main
+        <motion.main
         className = {style.PageLists}
+        exit = {Motions.routeExit}
+        initial = {Motions.routeInitial}
+        animate = {Motions.routeAnimate}
+        transition = {{duration: 0.33}}
         >
         <section
         className = {style.PageListsListNames}
@@ -47,11 +51,10 @@ export default function PageLists(){
             {!listnames().length &&
                 <>
                 <motion.h3
-                variants = {Motions}
-                initial='glowOutText'
-                animate='glowInText'
+                initial={Motions.glowOutText}
+                animate={Motions.glowInText}
                 transition={{
-                    delay: 0.25,
+                    delay: 0.5,
                     duration: 0.25,
                     repeatType: 'mirror',
                     repeat: 1,
@@ -65,6 +68,6 @@ export default function PageLists(){
         <TitlesGrid
         titles = {getTitlesOfActiveList()}
         />
-        </main>
+        </motion.main>
     )
 }

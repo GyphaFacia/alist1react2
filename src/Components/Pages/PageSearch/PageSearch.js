@@ -27,8 +27,12 @@ export default function SearchPage(){
     }
     
     return (
-        <main
+        <motion.main
         className = {style.PageSearch}
+        exit = {Motions.routeExit}
+        initial = {Motions.routeInitial}
+        animate = {Motions.routeAnimate}
+        transition = {{duration: 0.33}}
         >
             <motion.h3
             style={{width: '100%'}}
@@ -36,7 +40,7 @@ export default function SearchPage(){
             initial='glowOutText'
             animate='glowInText'
             transition={{
-                delay: 0.25,
+                delay: 0.5,
                 duration: 0.25,
                 repeatType: 'mirror',
                 repeat: 1,
@@ -47,7 +51,7 @@ export default function SearchPage(){
             {req && <TitlesGrid/>}
             
             {!req && <UnDrawPic/>}
-        </main>
+        </motion.main>
     )
 }
 

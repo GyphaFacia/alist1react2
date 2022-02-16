@@ -6,6 +6,7 @@ import TitlesGrid from '../../TitlesGrid/TitlesGrid'
 import {BsStar, BsSearch, BsList, BsPerson, BsHouse} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
+import {Motions} from 'Theme'
 
 import {UnDrawPic} from 'Misc'
 import pic from '../../../Images/unDraw/undraw_donut_love_kau1.svg'
@@ -48,8 +49,12 @@ export default function MainPage(){
     } 
     
     return (
-        <main
+        <motion.main
         className = {style.MainPage}
+        exit = {Motions.routeExit}
+        initial = {Motions.routeInitial}
+        animate = {Motions.routeAnimate}
+        transition = {{duration: 0.33}}
         >
         <section
         className = {style.Help}
@@ -97,7 +102,7 @@ export default function MainPage(){
         <UnDrawPic
         src = {pic}
         />
-        </main>        
+        </motion.main>        
     )
 }
 
